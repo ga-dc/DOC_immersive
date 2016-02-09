@@ -1,0 +1,11 @@
+.graph {
+  height: 500px;
+  width: 500px;
+}
+
+.state.graph{
+  border: 1px solid yellow;
+}
+.naics.graph {
+  border: 1px solid red;
+}
