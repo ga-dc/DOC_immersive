@@ -6,7 +6,7 @@ $(document).ready(function(){
     var dataPoints = [];
     for(var i = 1; i < results.length; i++){
       var currentResult = results[i];
-      var state = currentResult[3]
+      var state = currentResult[3];
       var numEmployees = parseInt(currentResult[1]);
       var annPayroll = parseInt(currentResult[2]) * 1000;
 
