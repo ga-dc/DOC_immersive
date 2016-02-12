@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/4.2.3/highcharts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dygraph/1.1.1/dygraph-combined-dev.js"></script>
+
+  <script src="js/common.js"></script>
+  <script src="js/average_salary.js"></script>
+  <script src="js/employment_by_category.js"></script>
+  <script src="js/employment_by_state.js"></script>
+  <script src="js/app.js"></script>
+
+  <title>ASM Visualizations</title>
+</head>
+<body>
+  <header></header>
+  <main>
+    <section>
+      <h2>BAR CHART</h2>
+      <div id="average-salaries"></div>
+    </section>
+    <section>
+      <h1></h1>
+      <select class="states"></select>
+      <div class="state graph"></div>
+      <hr>
+      <select class="naics"></select>
+      <div class="naics graph"></div>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+</html>
