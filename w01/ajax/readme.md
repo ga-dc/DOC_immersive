@@ -1,5 +1,5 @@
 # Ajax
-makes change awraf
+makes change awraf aoreigjaoer
 ## Learning Objectives
 - Explain the difference between synchronous and asynchronous program execution
 - Explain why synchronous program execution is not conducive to the front-end.
