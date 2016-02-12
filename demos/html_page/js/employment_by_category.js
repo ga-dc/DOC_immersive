@@ -6,7 +6,7 @@ function graphNAICSCode(naicsCode) {
     .then(convertResultsToObjects)
     .then(function(results) {
       var data = _.map(results, function(r) { return [r.YEAR, r.EMP]; });
-      graph(data, $(".naics.graph").get(0));
+      graph(data, $("#employment-by-category").get(0));
     });
 
 }

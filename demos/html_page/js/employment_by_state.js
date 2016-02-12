@@ -6,7 +6,7 @@ function graphState(id) {
   .then(convertResultsToObjects)
   .then(function(results) {
     var data = _.map(results, function(r) { return [r.YEAR, r.EMP]; });
-    graph(data, $(".state.graph").get(0));
+    graph(data, $("#employment-by-state").get(0));
   });
 
 }
