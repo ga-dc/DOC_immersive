@@ -20,7 +20,7 @@ function extractAvgSalary(results) {
 }
 
 function graphAvgSalary(dataPoints) {
-  dataPoints = _.sortBy(dataPoints, "avgSalary").slice(0,10);
+  dataPoints = _.sortBy(dataPoints, "avgSalary")
   console.log(dataPoints);
   $("#average-salaries").highcharts({
     chart: { type: 'column'},
@@ -29,6 +29,8 @@ function graphAvgSalary(dataPoints) {
       categories: _.map(dataPoints, 'state')
     },
     yAxis: {
+      min: _.min(_.map(dataPoints, 'avgSalary'))*.9,
+      max: _.max(_.map(dataPoints, 'avgSalary'))*1.05,
       title: {
         text: "Average Salary"
       }
@@ -36,6 +38,7 @@ function graphAvgSalary(dataPoints) {
     series: [
       {
         name: "States",
+        showInLegend: false,
         data: _.map(dataPoints, 'avgSalary')
       }
     ]

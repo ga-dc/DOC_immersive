@@ -19,18 +19,57 @@
   <title>ASM Visualizations</title>
 </head>
 <body>
+  <header>
+    <div class="intro">
+      <h1>Exploring the ASM Data</h1>
+      <p>Here's some info about this site</p>
+      <button>GitHub</button>
+      <button>ASM Data</button>
+    </div>
+  </header>
   <main>
+    <p>
+      The Annual Survey of Manufactures (ASM) provides key intercensal
+      measures of manufacturing activity, products, and location for the public
+      and private sectors. The ASM provides the best current measure of current
+      U.S. manufacturing industry outputs, inputs, operating status, and is the
+      primary basis for updates of the Longitudinal Research Database (LRD).
+    </p>
+
+    <p>
+      Below are a few visualizations which you can explore to better understand
+      the state of the Manufacturing economy in the U.S.
+    </p>
+
     <section class="salaries-by-state">
       <h2>Salaries By State</h2>
-      <div id="average-salaries"></div>
+      <p class="info">
+        Average salaries for employees in the manufacturing sector vary widely
+        from state-to-state. Use the graph on the right to explore this data.
+      </p>
+      <div class="graph-container">
+        <div id="average-salaries"></div>
+      </div>
     </section>
+
     <section class="employment">
-      <select class="states"></select>
-      <div id="employment-by-state" class="year-graph"></div>
-      <hr>
-      <select class="naics"></select>
-      <div id="employment-by-category" class="year-graph"></div>
+      <h2>Employment over Time</h2>
+      <section>
+        <h3>By State</h3>
+        <select class="states"></select>
+        <div class="graph-container">
+          <div id="employment-by-state" class="year-graph"></div>
+        </div>
+      </section>
+      <section>
+        <h3>By Category (NAICS Code)</h3>
+        <select class="naics"></select>
+        <div class="graph-container">
+          <div id="employment-by-category" class="year-graph"></div>
+        </div>
+      </section>
     </section>
+
   </main>
   <footer></footer>
 </body>
