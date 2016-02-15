@@ -327,7 +327,7 @@ var greeting = "Hi there!";
 ```  
 
 ### Escape sequences
-- What happens if we need a double quotation mark inside of your string? Sometimes you will need to use special characters or formatting in strings that can't be entered the same way as you would in a word processor. In these cases, you use "escape sequences".
+- What happens if we need a double quotation mark inside of your string? ˜Sometimes you will need to use special characters or formatting in strings that can't be entered the same way as you would in a word processor. In these cases, you use "escape sequences".
 - Syntax: backslash + letter (e.g., `"\n"`).
 - Examples:
 
@@ -616,7 +616,7 @@ else{
 
 # BREAK (10min)
 
-
+// TODO: temp converter using conditionals
 ## Loops(15/150)
 
 ### For loop
@@ -651,6 +651,8 @@ for(i in names){
 
 ### You Do - Write a for loop that prints odd numbers to 100. Do not use conditionals
 
+// TODO: ASM data array loop exercise
+
 ### While Loop(15m)
 ```javascript
 var i = 0;
@@ -673,16 +675,6 @@ Temperature conversion (Part II): [https://github.com/ga-dc/temperature_converte
 
 ### You do - Fizzbuzz(can use conditionals)(20m)
 
-### Homework
-- [Choose your own adventure](https://github.com/ga-dc/choose_your_own_adventure_js)
-- [JS Basics Quiz](https://github.com/ga-dc/js-basics-hw)
 
-# Review Questions
-1. When would you use an array over an object? And vice-versa?
-- What is the difference between `undefined` and `null`?
-- Provide an example of a semantically-named variable. Explain your choice.
-- What role does Javascript play on a website?
-- What are the five primitive data types?
-- What are the two composite data types? When would you use each?
-- What is an example of type coercion?
-- What is an example of a semantically-named variable?
+
+TODO: Convert [Choose your own adventure](https://github.com/ga-dc/choose_your_own_adventure_js) to in class ex
