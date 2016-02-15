@@ -23,7 +23,7 @@
 Think about how you've managed tracking changes to a file over time (perhaps
 with other people).
 
-#### THINK PAIR SHARE (10 Minutes)
+#### Think Pair Share (10 Minutes)
 
 Answer the following questions yourself, then turn to your neighbor and discuss
 your answers. We will then go around and compare.
@@ -102,44 +102,38 @@ they relate.
 
 ![Git Local Diagram](./images/git-local.jpg)
 
-#### (WE DO) Exercise 1: Create a Repository and Committing Locally
+#### (WE DO) Exercise 1: Create a Repository and Commit Locally
 
-1. create a new `resume` folder in sandbox directory.
-2. initialize a git repository in the `resume` folder.
-  - ```git init```
-3. Create a resume.txt file and write anything in it.
-  - save it!
-4. make an initial commit with the current version of their code (all files) (remember to ```add``` and then ```commit```)
+0. Create a folder in your preferred location (e.g. Documents) for your work (e.g. 'code')
+1. Open the GitHub client.
+2. Create a new git repository in your code folder. Call it 'my_first_page'.
+3. Create a file like `ideas.txt` and just put a few ideas for what you want your site to have, and save it!
+4. Commit your changes:
+  - Go back to the GitHub client and make sure you're on the **changes** tab
+  - Check the checkbox next to ideas.txt to include it in this commit.
+  - Write a short summary of what your changes were, and click commit!
 
 #### (You DO)
-4. modify resume.txt and create a new file (add something to it!). Then create a new commit, with an appropriate message
-5. repeat previous step (committing) but this time, change two files.
-6. view the 'history' by running `git log` to see the log of commits, and what changed
-
-** Note: If you've initialized the git repository in your sandbox folder instead of the resume folder, try running ```rm -rf .git```**
+4. Modify ideas.txt and create a new file (add something to it!). Then create a new commit, with an appropriate message
+5. Repeat previous step (committing) but this time, change two files.
+6. View the history of your project by clicking the **history** tab. Note you can see a list of commits, and what each one changed.
 
 #### Git Local Workflow
 
 Developing a project revolves around the basic **edit/stage/commit** pattern.
 
-First, you edit your files in the working directory. When you’re ready to save a copy of the current state of the project, you stage changes with git add. After you’re happy with the staged snapshot, you commit it to the project history with git commit.
-
-This means that git add needs to be called every time you alter a file.
-
-The staging area is one of Git's more unique features, and it can take some time to wrap your head around it. It helps to think of it as a buffer between the working directory and the project history.
-
-Instead of committing all of the changes you've made since the last commit, the stage lets you group related changes into highly focused snapshots before actually committing it to the project history. This means you can make all sorts of edits to unrelated files, then go back and split them up into logical commits by adding related changes to the stage and commit them piece-by-piece.
-
-The git commit command commits the staged snapshot to the project history. Committed snapshots can be thought of as “safe” versions of a project—Git will never change them unless you explicitly ask it to. Along with git add, this is one of the most important Git commands.
+First, you edit your files in the working directory. When you’re ready to save a copy of the current state of the project, you stage changes by clicking the check boxes next to the files. After you’re happy with the staged snapshot, you commit it to the project history with a message.
 
 ### Break (10 minutes)
 
-### Remote Repositories and Github (30 minutes)
+### Publishing to Remote Repositories and Github (30 minutes)
 
-#### Docs Dive (5 minutes)
+Right now, your git repository is only on your local computer. As developers, we
+often want to publish our work so others can use or contribute to it.
 
-Students should briefly look over provided reading on [Git Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
-and prepare to discuss key takeaways (read through pushing remotes).
+There are lots of options for doing this, but we'll start with the simplest,
+GitHub. GitHub is a popular site where developers share, discuss, and collaborate
+on code.
 
 #### Terms and Concepts (Remotes)
 
@@ -152,28 +146,52 @@ and prepare to discuss key takeaways (read through pushing remotes).
 * **push**   - sending changes to a remote repository and merging them into the specified branch
 * **merge conflict** - when two commits conflict, and thus can't be merged automatically.
 
-#### Creating your own remote repo
-
-* Set up push capability from local to remote
-* See diagram below
-
-![Git Process Diagram](./images/git07.jpg)
-
 #### Exercise 2: Publish to a remote repository on Github
 
-1. make sure you are in the resume directory and you have nothing to commit.
-2. ensure you have at least one commit
-3. create a github repo
-  - To create a repo, click on the '+' at the top right of your Github profile
-4. give the repo a name and description, and ensure it's public
-  - don't worry about the other selections
-5. Follow the steps provided to add repo as a remote and push to remote
-  - NOTE: leave out the "-u" in the push command
-  - NOTE: there are 3 options for setting up your repo. take a second to think about which commands you need here
-  - Is the repository on your LOCAL already existing?
-6. open the repo on github, and explore the code there
-7. make a change locally, commit it, and sync it
-8. open the repo on github, and note that the changes have synced
+We'll use the GitHub client to automatically create a matching repository for
+our project and synchronize with it.
+
+1. Make sure you are in the resume directory and you have nothing to commit.
+2. Ensure you have at least one commit
+3. Click the publish button in the upper right.
+4. Choose a name and description for this repository on GitHub
+5. Note that the button for this repo has changed to `sync`... click this button
+at any time to sync with github.
+
+We can now visit [GitHub](github.com) and go to our profile to see our
+repositories, which should include our newest repository.
+
+### Cloning Existing Repos
+
+Often, we'll want to take a project on GitHub, and download it to our own
+computer. We might do this to work on a project someone else has created, or to
+download our own work onto another computer. In Git, this is called `cloning`.
+
+Cloning downloads the whole repository, not just the latest version. This means
+once we've cloned a project, we can go back and look at / explore the history
+if we want / need to.
+
+#### Exercise 3: Cloning an existing repo
+
+1. Visit the page of a repo you want to clone.
+  - For this exercise, we'll use [This curriculum](https://github.com/ga-dc/DOC_immersive)
+2. Click the "Save to computer" button. It's near the middle top right, and it has a monitor with a down arrow on it.
+3. If asked to switch apps, choose 'Yes'
+4. You should now have your own cloned repo on your computer.
+
+### Forking a Repo
+
+Forking is a process which makes a copy of another person's repo under our own
+account on GitHub. This gives us our own copy that we can edit without
+interfering with the original.
+
+
+#### Exercise 4: Forking Cloning an existing repository
+
+1. Visit the page of a repo you want to fork
+  - For this exercise, we'll use [Wendy Bite](https://github.com/ga-wdi-exercises/wendy_bite)
+2. In the upper right, click 'Fork'
+3. Verify that you're on your own fork, then follow the steps from exercise 3 to save it to your computer.
 
 ### Closing
 
@@ -181,10 +199,6 @@ and prepare to discuss key takeaways (read through pushing remotes).
 - What problems do we anticipate using git / github?
 - Differentiate between git as a tool, and github as a service
 - Define and differentiate between forking and cloning
-
-## Quiz Questions
-
-1. What are the main components of a git repository and how do they relate?
 
 ## Resources
 
