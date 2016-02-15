@@ -1,32 +1,19 @@
 # LEARNING OBJECTIVES
-## JS Basics
-- describe the role Javascript plays alongside HTML and CSS.
-- describe what a variable is and how it holds data.
-- give variables semantic names to provide clarity on data that is being stored.
-- list and describe the primitive data types.
-- utilize mathematical operators in Javascript.
-- define type coercion.
-- use `prompt` to get user input
-- use `console.log` to display debugging information in the dev tools
-- understand booleans in JS and their use case
-- describe why control flow is utilized in computer programming
-- write an if, else if, and else statement in JS
-- write a for loop and while loop in JS and differentiate between them
-- define and use complex data types.
-- utilize loops to iterate through complex data types
-
-## Functions
-- Describe a JavaScript function
-- Write a function in JavaScript using a declaration and an expression
-- Recognize the parts of both
-- Explain arguments (introduce scope)
-- Compare and contrast the two (explain hoisting)
-- Distinguish referencing and invocation
-- State the difference between Output and Side Effects
-- Show why functions are important and give an example
+- Describe the role Javascript plays alongside HTML and CSS.
+- List and describe the primitive data types.
+- Describe uses of mathematical operators in Javascript.
+- Define type coercion.
+- Define and use complex data types.
+- Explain the difference between `prompt` and `console.log`
+- Practice proper JS syntax and semantic variable naming.
+- Differentiate between true & false && truthy & falsey
+- Describe why control flow is utilized in computer programming
+- Write an if, else if, and else statement in JS
+- Write a for loop and while loop in JS and differentiate between them
+- Utilize loops to iterate through complex data types
 
 # HTML, CSS and Javascript (20/20)
-HTML (content), CSS (style) and Javascript (behavior) are the main components of front-end web development.
+HTML (content), CSS (style) and Javascript (behavior) as the main components of front-end web development.
 - Q: Sum up the roles HTML and CSS play on a website in a couple of sentences.
   - HTML: Structure
   - CSS: Styling
@@ -50,6 +37,7 @@ Exercise result categories
   - Gives the page a much smoother user experience compared to a static page that doesn't have this sort of functionality.
 - Communication with a server
   - Javascript is somehow telling a server that (a) a user has done something, (b) save that interaction and (c) display the results of that interaction to all other users.
+- Not an exhaustive list of Javascript properties, but we'll go over these and more in more detail later on in the course.
 
 So, to the main three components of front-end web development up in one word each...
 - HTML: Structure
@@ -65,9 +53,10 @@ So, to the main three components of front-end web development up in one word eac
   - What can it do that a markup language like HTML can't?
   - It let's us do things! It lets us act on information, manipulate it, display it, pretty much whatever we want.
 - Javascript enables us to do all that in a browser.
+  - Using the tools you learned in the pre-work (e.g., data types, loops, functions).
 
 ## Why is it the dominant programming language of the web?
-- Barriers to entry for learning Javascript are very low.
+- Barriers to entry for learning Javasc0ript are very low.
   - No additional software required to run it. Just a text editor and a browser.
     - You can even run it directly in the browser via its Javascript console.
       - Ex. Hide images on the GA website.
@@ -98,7 +87,7 @@ So, to the main three components of front-end web development up in one word eac
 
 ## Next, open the site in Chrome, and open the Dev Tools
 
-- Ctrl+ Option + I
+- Cntrl + Shift + I
 - The "Console" is a REPL
   - “Read-Eval-Print Loop”.
   - Programming environment that lets us run Javascript code one line at a time.
@@ -149,26 +138,6 @@ We store data types in variables. A variable is a "bucket" that holds data. You 
   var multiplication = 5 * 2;
   => 10
   ```
-
-> We need to make sure we give our variables good semantic names. Semantic names provide clarity to a piece of code's intent. This is useful for a variety of reasons:
-- Our code reads like english(makes sense)
-- other developers(including future you) can understand the purpose of the variable through context
-
-Good examples:
-
-```js
-var name = "Tom";
-var age = 25;
-var backgroudColor = "blue"
-```
-
-Bad examples:
-
-```js
-var x = 5;
-var theNumberTen = 10;
-var number = "Tom"
-```
 
 - Javascript is a "dynamic" or "untyped" language, meaning a variable can switch between data types.
 
@@ -302,7 +271,7 @@ var nothing = undefined;
 
 Null: an explicitly-assigned non-value.
   - Javascript will never set anything to `null` by itself. `null` only appears when you tell it to.
-  - The only thing that's inherently `null` in Javascript is `null` itself!
+  - If I'm not mistaken, the only thing that's inherently `null` in Javascript is `null` itself!
   - Can you imagine a situation where that would be useful?
     - Placeholder for a variable that you know will be replaced with an actual value later on.
 
@@ -358,7 +327,7 @@ var greeting = "Hi there!";
 ```  
 
 ### Escape sequences
-- Sometimes you will need to use special characters or formatting in strings that can't be entered the same way as you would in a word processor. In these cases, you use "escape sequences".
+- What happens if we need a double quotation mark inside of your string? Sometimes you will need to use special characters or formatting in strings that can't be entered the same way as you would in a word processor. In these cases, you use "escape sequences".
 - Syntax: backslash + letter (e.g., `"\n"`).
 - Examples:
 
@@ -371,6 +340,7 @@ var greeting = "Hi there!";
   // "\t" = tab
   "\tOnce upon a time..."
   => "     Once upon a time..."
+
   ```
 
 - More examples [here](http://www.javascriptkit.com/jsref/escapesequence.shtml).  
@@ -398,6 +368,26 @@ var greeting = "Hi there!";
   => NaN
   ```
 
+String methods
+- Javascript comes with methods you can use to inspect and modify strings.
+- Examples:
+
+  ```javascript
+  // .search(): find the starting index of a string value.
+  // String indexes are 0-based, so the index of a string's first character is 0.
+  var greetings = "Hi there Andy!";
+  greetings.search( "Andy" );
+  => 9
+
+  // .slice(): return and store a portion of a string.
+  var greetings = "Hi there Andy!";
+  var buddy = greetings.slice( 9, 13 );
+  => "Andy"
+  ```
+
+- More examples [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).
+  - Slack to class.
+
 # Syntax & Semantic Naming
 
 ## Syntax (5/65)
@@ -417,6 +407,7 @@ Semicolons
 
 Comments
 - Q: Why would you use comments?
+  - Talked about this in the HTML class. Same reasoning applies.
 - Types of comments
   ```javascript
   // Single line
@@ -434,7 +425,7 @@ Comments
 
 # Prompt (5/70)
 
-We've learned a lot about basic data types, but it'd be nice if we had a way of getting user input into our browser! We'll learn some ways to use different types of input later in the course, but for now, we'll be getting user input using the `prompt()` function.
+We've learned alot about basic data types, but it'd be nice if we had a way of getting user input into our browser! We'll learn some ways to use forms and such later in the course, but for now, we'll be getting user input using the `prompt()` function.
 
 At any point in our JS code, if we write `prompt()`, a pop up box will open in our browser for a user to enter in text.
 
@@ -449,10 +440,16 @@ You can also pass in a string as an argument to have the pop up box contain that
 
 ```js
 var age = prompt("How old are you?")
+// if the user entered 25
+age + 23
+=> 48
 ```
 
+> This is just one way in which we can get user input with javascript. Later we'll be using text fields and select boxes to get user input.
+
+// TODO: adjust temperature converter exercise
 # CODING EXERCISE #1 + Break (20/90)
-Temperature conversion (Part I): [Temp converter!](https://github.com/ga-wdi-exercises/temperature_converter)  
+Temperature conversion (Part I): [https://github.com/ga-dc/temperature_converter](https://github.com/ga-dc/temperature_converter)  
 
 # Composite Data Types
 
@@ -533,23 +530,8 @@ Oftentimes you'll be producing boolean values when comparing two values
 1 === 2
 => false
 
-1 < 2
-=> true
-
-1 <= 1
-=> true
-
-1 > 2
-=> false
-
-1 >= 2
-=> false
-
 1 == "1"
 => true
-
-1 === "1"
-=> false
 ```
 
 > What is the differences between the last two? When using `===`, it checks for both the data type and value. `==` only checks for value. Under the hood, though, `==` converts the data type to the same data type and then executes comparison.
@@ -565,7 +547,7 @@ So we all know the boolean values of `true` and `false` But there is also a conc
 
 > Everything else is "truthy". Why might we need this programmatic concept of "truthy" and "falsey"?(ST-WG)
 
-## Moar Comparison Operators (5/120)
+## Comparison Operators (5/120)
 
 - `&&`
 - `||`
@@ -580,9 +562,25 @@ true || false
 17 > 12 || 4 <= 4
 ```
 
+Demonstrate comparison operators in node
+
+- `<`, `<=`
+- `>`, `>=`
+- `!=`, `!==`
+- `==`, `===`
+
+```javascript
+55 == "55"
+=> true
+55 === "55"
+=> false
+```
+
 ## Conditionals (15/135)
 
-Often time in JS, we will want code to execute differently based on specific condition being met. We use the `if`, `else if` and `else` keywords in the following way to do this.
+// Have an example somewhere where one of the more unusual "falsey" values (e.g., empty string) triggers a conditional.
+
+write and narrate through the following code (10m)
 
 ```javascript
 var age = 24;
@@ -597,7 +595,7 @@ else{
 }
 ```
 
-Conditionals will always follow this pattern. There is one or more key words(if, else if, else). Followed by an expression that will evaluate to true or false in parentheses. Then followed by code to execute if/when the condition is met.
+Conditionals will always follow this pattern. There is a key word(if, else if, else). Followed by an expression that will evaluate to true or false in parentheses. Then followed by code to execute when condition is met.
 
 ## Whitelisting vs Blacklisting
 What's wrong with the following code?:
@@ -631,7 +629,6 @@ for(var i = 0; i < 10; i++){
   console.log(i)
 }
 ```
-
 The first part is the keyword `for`.
 Followed by 3 parts `;` separated in parentheses.
 - The first part instantiates the iteratee. Essentially gives you access to this value in your code block as i. It starts at 0 in this case.
@@ -676,69 +673,16 @@ Temperature conversion (Part II): [https://github.com/ga-dc/temperature_converte
 
 ### You do - Fizzbuzz(can use conditionals)(20m)
 
-## Functions
+### Homework
+- [Choose your own adventure](https://github.com/ga-dc/choose_your_own_adventure_js)
+- [JS Basics Quiz](https://github.com/ga-dc/js-basics-hw)
 
-### Intro (5 / 75)
-
-Very frequently in programming, we want to be able to encapsulate logic. We do this so that we can reuse code as many times as we want. In javascript, we do this with functions.
-
-What’s a function?
-* A reusable block of Javascript code.
-* Simply put, a function is a block of code that takes an input, process that input and then produces an output.
-* Fundamental component of Javascript.
-* Analogy: Quizno's Oven
-
-### Recognize the parts (10 / 85)
-
-#### Function Container
-
-```js
-function multiply(){
-
-}
-```
-
-#### Input ("Arguments" or "Parameters")
-
-```js
-function multiply( num1, num2 ){
-
-}
-```
-#### Output and Side Effects
-
-```js
-function multiply( num1, num2 ){
-  console.log( num1 * num2 );
-  return num1 * num2;
-}
-```
-* Output: return value.
-* Side Effects: e.g., print statements.
-
-Q. Does a function need an input, output and/or side effects to work?
----
-
-> A. Short answer. No.  Note: There is always an output (undefined). Discuss.
-
-#### Calling and Referencing a Function (5 / 90)
-
-We've defined a function. Now we need to call it...
-
-```js
-// Call the multiply function.
-multiply( 2, 5 );
-
-// What happens if we reference the function without parentheses?
-multiply;
-```
-
-### Why do we use functions? (5 / 95)
-
-Say we wanted the square of a number without using the above function. How would we do that?
-
-
-Benefits of functions
-* Reusability.
-* DRYness.
-* Naming convention (describes intent).
+# Review Questions
+1. When would you use an array over an object? And vice-versa?
+- What is the difference between `undefined` and `null`?
+- Provide an example of a semantically-named variable. Explain your choice.
+- What role does Javascript play on a website?
+- What are the five primitive data types?
+- What are the two composite data types? When would you use each?
+- What is an example of type coercion?
+- What is an example of a semantically-named variable?
