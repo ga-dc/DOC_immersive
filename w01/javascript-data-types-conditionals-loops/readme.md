@@ -66,25 +66,25 @@ So, to the main three components of front-end web development up in one word eac
   - One of the biggest additions to JS was AJAX, which allows use to reload parts of a page without refreshing the entire thing (just like on Facebook). Big implications for User Experience.
 - A lot of frameworks and libraries -- like Backbone and jQuery -- have emerged that enable us to do so much more -- and do it quickly -- with Javascript.
 
-## Pseudocode (15/35)
+# Pseudocode (15/35)
 
 Before we dive into JS. I want to talk a little bit about pseudocode.
 
 Pseudocode is a powerful way developers plan out their code. It's a way to break down larger problems into smaller component pieces that make the problem easier to solve. Basically you write in english(not code) what you want your program to do. It can be extremely helpful and the code pretty much writes itself with good pseudocode! Many developers write pseudocode as comments so that they can fill in actual code directly below them.
 
-### I do - Write pseudocode for the following:
+## I do - Write pseudocode for the following:
   - A program that displays all numbers from 1 - 100
   ```js
     // for each number between 1 to 100
       // display the number
   ```
 
-### You do - Write pseudocode for the following:
+## You do - Write pseudocode for the following:
   - A program that displays all odd numbers from 1 - 100
   - A program that displays all numbers that aren't multiples of 3 or 5.
   - A program that displays all numbers. If the number being displayed is a multiple of 3, it will display "fizz". If it is a multiple of 5, it will display "buzz"
 
-# Setting up our environment (5/25)
+# Setting up our environment (5/40)
 
 ## Create a repository called DOC-exercises using github desktop
 
@@ -130,7 +130,7 @@ console.log("hello world")
 
 # Primitive Data Types
 
-## Intro (5/30)
+## Intro (5/45)
 Primitive data types are the building blocks of Javascript.
 - Whenever you do anything in Javascript, you are creating and changing these basic pieces of information.
 
@@ -169,7 +169,7 @@ We store data types in variables. A variable is a "bucket" that holds data. You 
   var myFavoriteNumber = "five";
   ```
 
-## Numbers (10/45)
+## Numbers (10/55)
 
 In Javascript, numbers are numerical values -- straightforward!
   - All numbers are of type "number," regardless of format (e.g., integer, float/decimal).
@@ -269,7 +269,7 @@ isNaN( myFavoriteNumber );
 => false
 ```
 
-## Undefined & Null (5/50)
+## Undefined & Null (5/60)
 Values that indicate the lack of a meaningful value.
 - Anybody else find that weird? How is there more than one data type for nothing?
 - Q: What's the difference?
@@ -293,14 +293,15 @@ var nothing = undefined;
 
 Null: an explicitly-assigned non-value.
   - Javascript will never set anything to `null` by itself. `null` only appears when you tell it to.
-  - If I'm not mistaken, the only thing that's inherently `null` in Javascript is `null` itself!
   - Can you imagine a situation where that would be useful?
     - Placeholder for a variable that you know will be replaced with an actual value later on.
 
 
 So the main difference between `undefined` and `null` is intention. Other than that, they're both...nothing.
 
-### Type Coercion
+## Break(10/70)
+
+### Type Coercion(5/75)
 Javascript will try to make sense of any strange operations you throw at it.
 - By "strange", I mean subtracting a number from a string, or multiplying `null` by 100.
 - It does this through something called "type coercion" -- converting data types.
@@ -335,7 +336,7 @@ parseInt( "burrito" );
 
 There are other examples of type coercion, but the point here isn't to remember them all. Just be aware that sometimes Javascript will fire weird results back at you with no explanation. Sometimes, type coercion might be the culprit.
 
-## Strings (10/60)
+## Strings (10/85)
 Strings are words in javascript!
 
 We instantiate strings using the "string literal" form.
@@ -412,11 +413,12 @@ String methods
 
 # Syntax & Semantic Naming
 
-## Syntax (5/65)
+## Syntax (5/90)
 Variable syntax
 - Should be named using camelCase lettering.
   - First letter of first word lowercase. First letter of remaining words uppercase.
   - No spaces or punctuation between words.
+- try to make sure your variables are semantically named
 
   ```javascript
   // camelCase
@@ -445,7 +447,7 @@ Comments
 - Help out other developers and future you.
   - If anything, it will help us out when grading your projects!
 
-# Prompt (5/70)
+# Prompt (5/95)
 
 We've learned alot about basic data types, but it'd be nice if we had a way of getting user input into our browser! We'll learn some ways to use forms and such later in the course, but for now, we'll be getting user input using the `prompt()` function.
 

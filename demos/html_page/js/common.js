@@ -21,6 +21,7 @@ function convertResultsToObjects(results) {
 function graph(data, el) {
   g = new Dygraph(el, data,
   {
-    labels: [ "Year", "Employment" ]
+    labels: [ "Year", "Employment" ],
+    width: 800
   });
 }
