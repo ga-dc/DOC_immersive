@@ -651,7 +651,7 @@ for(i in names){
 
 ### You Do - Write a for loop that prints odd numbers to 100. Do not use conditionals
 
-// TODO: ASM data array loop exercise
+
 
 ### While Loop(15m)
 ```javascript
@@ -678,3 +678,202 @@ Temperature conversion (Part II): [https://github.com/ga-dc/temperature_converte
 
 
 TODO: Convert [Choose your own adventure](https://github.com/ga-dc/choose_your_own_adventure_js) to in class ex
+
+Here is some logic we may need to do going forward in the class.
+
+TODO: ASM data array loop exercise
+//   - grab 2 data sets
+
+### Functions
+- Describe what a JavaScript function is.
+- Recognize the parts of a function.
+- Write a function in JavaScript using a declaration and an expression.
+- Define hoisting.
+- Differentiate between referencing and invoking a function.
+- State the difference between a function's output and side effects.
+
+## Functions
+
+### Intro (5 / 75)
+
+The content of an object isn't limited to properties. We can also give objects functionality in the form of **methods**.
+* Before we do that, however, we should review functions.
+
+What’s a function?
+* A reusable block of Javascript code.
+* Simply put, a function is a block of code that takes an input, process that input and then produces an output.
+* Fundamental component of Javascript.
+* Analogy: Quizno's Oven
+
+### Recognize the parts (10 / 85)
+
+#### Function Container
+
+```js
+function multiply(){
+
+}
+```
+
+#### Input ("Arguments" or "Parameters")
+
+```js
+function multiply( num1, num2 ){
+
+}
+```
+#### Output and Side Effects
+
+```js
+function multiply( num1, num2 ){
+  console.log( num1 * num2 );
+  return num1 * num2;
+}
+```
+* Output: return value.
+* Side Effects: e.g., print statements.
+
+Q. Does a function need an input, output and/or side effects to work?
+---
+
+> A. Short answer. No.  Note: There is always an output (undefined). Discuss.
+
+#### Calling and Referencing a Function (5 / 90)
+
+We've defined a function. Now we need to call it...
+
+```js
+// Call the multiply function.
+multiply( 2, 5 );
+
+// What happens if we reference the function without parentheses?
+multiply;
+```
+
+### Why do we use functions? (5 / 95)
+
+Say we wanted the square of a number without using the above function. How would we do that?
+
+
+Benefits of functions
+* Reusability.
+* DRYness.
+* Naming convention (describes intent).
+
+### Function Declarations and Expressions (5 / 100)
+
+There are two ways to define or declare a function...
+
+#### Declaration
+
+``` javascript
+function multiply( num1, num2 ) {
+  return num1 * num2;
+}
+```
+
+#### Expression
+
+``` javascript
+var multiply = function ( num1, num2 ) {
+  return num1 * num2;
+}
+```
+
+#### Declarations vs. Expressions
+
+Both do the same thing and run the same chunk of code. But they are different.
+* What differences do you notice?
+
+**Function declarations** define functions without assigning them to variables.
+
+**Function expressions** save anonymous functions to variables.
+
+While we call/reference functions defined through declarations and expressions the same way, they do have a subtle but important difference...
+
+> Declarations are processed before any code is executed, meaning you can call functions before they are declared. This behavior is known as **hoisting**.
+
+
+### Hoisting (10 / 110)
+
+What do you think will happen when we run the below code...
+```js
+multiply( 3, 5 );
+var multiply = function( num1, num2 ){           // NOTE: This is a function expression
+  return num1 * num2;
+}
+```
+
+Surely the same thing will happen when we run the below code...
+
+```js
+multiply( 3, 5 );
+function multiply( num1, num2 ) {               // NOTE: This is a function declaration
+  return num1 * num2;
+}
+```
+> We can successfully call the square function before declaring it. When our script file loads, it essentially processes all function declarations first, and then runs the rest of our Javascript from top to bottom.
+
+Knowing this, what will happen each time we call `express` and `declare` in the below example?
+
+```js
+express();        // What happens when we run this function at this point in the code?
+declare();        // What about now?        
+
+var express = function() {
+    console.log('Function expression called.');
+};
+
+express();        // ???
+declare();        // ???
+
+function declare() {
+    console.log('Function declaration called.');
+}
+```
+
+This is a neat feature, but can you think of a potential pitfall of "hoisting" too often?
+* Code organization and readability.
+
+## Methods (15 / 125)
+
+Methods are functions that are attached to some object.
+
+```js
+// Our car now has a drive method...
+var car = {
+  make: "Honda",
+  model: "Civic",
+  color: "red",
+  drive: function(){
+    console.log("vroom vroom");
+  },
+
+  // Methods can take arguments
+  gps: function( location ){
+    console.log( "Beep boop, driving to " + location );
+  }
+}
+
+// We can run the car's two methods like so...
+car.drive();
+car.paint( "blue" );
+console.log( "Car color is: " + car.color );
+```
+
+With methods as part of our Javascript toolbox, we now have a cool interface with which we can interact with our objects.
+* Why would custom methods be a preferred way to modify object properties vs. using object literal notation?
+
+We've only scratched the surface for objects. We're going to dive much deeper into them later on in the course.
+
+## Exercise + Homework: Calculator (15 / 140)
+
+[Javascript Calculator](https://github.com/ga-dc/js-calculator)
+
+## Closing, Q&A (10 / 150)
+
+---
+
+## Further Reading
+
+* [Javascript Scoping and Hoisting](http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html)
