@@ -2,26 +2,32 @@
 
 ## Learning Objectives
 
-### HTML/CSS
-- describe the role of HTML, CSS and JS on the web
-- describe the syntax of an html document and elements
-- list common HTML tags
-- utilize HTML tags to semantically markup content
-- Link a style sheet to HTML
-- describe the syntax of a CSS rule
-- list common selector types
-- list common css properties
-- describe the behavior of floated elements in CSS
-- explain when/how clearfixes are necessary
-- use css to layout and style a document
+### HTML
 
-// wendy bite, satres list, dew,
-// layout for final project, including inputs and static photos of graphs
+- Describe the role of HTML, CSS and JS on the web
+- Describe the syntax of HTML tags / elements
+- Explain the difference between the `head` and `body` of an HTML document
+- List common HTML tags
+- Explain the purpose of tag attributes, and list a few common ones
+- Create a basic HTML document in a text editor such as 'Atom'
+- Write valid, semantic HTML for a document.
 
+### CSS
+
+- Describe the role of CSS on the Web
+- Link a CSS stylesheet from an HTML document
+- Describe the syntax of a CSS rule
+- List common selector types
+- List common css properties
+- Describe the behavior of floated elements in CSS
+- Explain when/how clearfixes are necessary
+- Use css to layout and style a document
 
 ### Git & Github
-- explain the purpose and importance of version control in web development
-- deploy static site using gh-pages
+
+- Explain the purpose and importance of version control in web development
+- Use the GitHub for Windows client to commit to a git repository
+- Deploy using GitHub Pages.
 
 ### Javascript
 - describe the role Javascript plays alongside HTML and CSS.
