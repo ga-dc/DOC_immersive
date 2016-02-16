@@ -4,6 +4,9 @@
 
 ### HTML
 
+Reading:
+[Shay Howe's Guide to HTML/CSS](http://learn.shayhowe.com)
+
 - Describe the role of HTML, CSS and JS on the web
 - Describe the syntax of HTML tags / elements
 - Explain the difference between the `head` and `body` of an HTML document
