@@ -12,7 +12,7 @@
 - Write a for loop and while loop in JS and differentiate between them
 - Utilize loops to iterate through complex data types
 
-# HTML, CSS and Javascript (20/20)
+# HTML, CSS and Javascript (15/15)
 HTML (content), CSS (style) and Javascript (behavior) as the main components of front-end web development.
 - Q: Sum up the roles HTML and CSS play on a website in a couple of sentences.
   - HTML: Structure
@@ -44,7 +44,7 @@ So, to the main three components of front-end web development up in one word eac
 - CSS: Styling
 - Javascript: Behavior
 
-# JS: The Client-Side Programming Language of the Web (5/25)
+# JS: The Client-Side Programming Language of the Web (5/20)
 
 - Brief history: Created in 10 days by Brendan Eyck, of Mozilla. *Not* related to Java in any way but its name.
   - "Java" is to "Javascript" as "ham" is to "hamster"
@@ -66,9 +66,34 @@ So, to the main three components of front-end web development up in one word eac
   - One of the biggest additions to JS was AJAX, which allows use to reload parts of a page without refreshing the entire thing (just like on Facebook). Big implications for User Experience.
 - A lot of frameworks and libraries -- like Backbone and jQuery -- have emerged that enable us to do so much more -- and do it quickly -- with Javascript.
 
-# Setting up our environment (5/30)
+# Pseudocode (15/35)
 
-## First, create your HTML and JS
+Before we dive into JS. I want to talk a little bit about pseudocode.
+
+Pseudocode is a powerful way developers plan out their code. It's a way to break down larger problems into smaller component pieces that make the problem easier to solve. Basically you write in english(not code) what you want your program to do. It can be extremely helpful and the code pretty much writes itself with good pseudocode! Many developers write pseudocode as comments so that they can fill in actual code directly below them.
+
+## I do - Write pseudocode for the following:
+  - A program that displays all numbers from 1 - 100
+
+  ```js
+    // for each number between 1 to 100
+      // display the number
+  ```
+
+## You do - Write pseudocode for the following:
+  - A program that displays all odd numbers from 1 - 100
+  - A program that displays all numbers that aren't multiples of 3 or 5.
+  - A program that displays all numbers. If the number being displayed is a multiple of 3, it will display "fizz". If it is a multiple of 5, it will display "buzz"
+
+> Make sure you keep this pseudocode around, we're going to write the actual code for this later!
+
+# Setting up our environment (5/40)
+
+## Create a repository called DOC-exercises using github desktop
+
+> What you call the respository doesn't really matter. Going forward in this class, if we're creating any code from scratch with no starter code, you may place your code here.
+
+## Next, create your HTML and JS files
 
 - `index.html` and `script.js`
 
@@ -76,7 +101,7 @@ So, to the main three components of front-end web development up in one word eac
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Yo</title>
+    <title>Intro to Javascript</title>
     <script src="script.js"></script>
   </head>
   <body>
@@ -85,9 +110,9 @@ So, to the main three components of front-end web development up in one word eac
 </html>
 ```
 
-## Next, open the site in Chrome, and open the Dev Tools
+## Finally, open the site(`index.html`) in Chrome, and open the Dev Tools
 
-- Command + Option + I
+- Ctrl + Shift + I
 - The "Console" is a REPL
   - “Read-Eval-Print Loop”.
   - Programming environment that lets us run Javascript code one line at a time.
@@ -97,7 +122,7 @@ So, to the main three components of front-end web development up in one word eac
     3. (P)rints it to the console.
     4. Then it (L)oops back to the beginning, ready to (R)ead the next line of code we feed it.
 
-> `⌘ + ⌥ + i` enters you in the the chrome dev tools(if you're using chrome...) Here you can do a bunch of stuff like inspect elements and looks at the html. More importantly for this class though, is it allows you to access the console which interacts with the JS you loaded to your page. In our case we'll see that interaction with the code below
+> `⌘ + ⌥ + i`(mac) or `ctrl + shift + i`(windows) enters you in the the chrome dev tools(if you're using chrome...) Here you can do a bunch of stuff like inspect elements and looks at the html. More importantly for this class though, is it allows you to access the console which interacts with the JS you loaded to your page. In our case we'll see that interaction with the code below
 
 In your `script.js` file add the following:
 ```js
@@ -108,7 +133,7 @@ console.log("hello world")
 
 # Primitive Data Types
 
-## Intro (5/35)
+## Intro (5/45)
 Primitive data types are the building blocks of Javascript.
 - Whenever you do anything in Javascript, you are creating and changing these basic pieces of information.
 
@@ -147,7 +172,7 @@ We store data types in variables. A variable is a "bucket" that holds data. You 
   var myFavoriteNumber = "five";
   ```
 
-## Numbers (10/45)
+## Numbers (10/55)
 
 In Javascript, numbers are numerical values -- straightforward!
   - All numbers are of type "number," regardless of format (e.g., integer, float/decimal).
@@ -247,7 +272,7 @@ isNaN( myFavoriteNumber );
 => false
 ```
 
-## Undefined & Null (5/50)
+## Undefined & Null (5/60)
 Values that indicate the lack of a meaningful value.
 - Anybody else find that weird? How is there more than one data type for nothing?
 - Q: What's the difference?
@@ -271,49 +296,15 @@ var nothing = undefined;
 
 Null: an explicitly-assigned non-value.
   - Javascript will never set anything to `null` by itself. `null` only appears when you tell it to.
-  - If I'm not mistaken, the only thing that's inherently `null` in Javascript is `null` itself!
   - Can you imagine a situation where that would be useful?
     - Placeholder for a variable that you know will be replaced with an actual value later on.
 
 
 So the main difference between `undefined` and `null` is intention. Other than that, they're both...nothing.
 
-### Type Coercion
-Javascript will try to make sense of any strange operations you throw at it.
-- By "strange", I mean subtracting a number from a string, or multiplying `null` by 100.
-- It does this through something called "type coercion" -- converting data types.
+## Break(10/70)
 
-You might encounter this when dealing with numerical values but for whatever reason some of them are in string form.
-  - Q: Have students guess what the results of the following code examples are...
-
-```javascript
-// In some cases Javascript is helpful and converts strings to numbers in the correct way.
-"3" - "2"
-=> 1
-
-// ...but sometimes it doesn't. In this example, the + operator acts as if it's concatenating two strings.
-"3" + "2"
-=> 32
-
-// And this?
-"five" * 5;
-=> NaN
-```
-
-When in doubt, convert data types that should be numbers using `parseInt()`.
-
-```javascript
-// parseInt converts a string to a number value, if available.
-parseInt( "3" );
-=> 3
-
-parseInt( "burrito" );
-=> NaN
-```
-
-There are other examples of type coercion, but the point here isn't to remember them all. Just be aware that sometimes Javascript will fire weird results back at you with no explanation. Sometimes, type coercion might be the culprit.
-
-## Strings (10/60)
+## Strings (10/80)
 Strings are words in javascript!
 
 We instantiate strings using the "string literal" form.
@@ -327,7 +318,7 @@ var greeting = "Hi there!";
 ```  
 
 ### Escape sequences
-- Sometimes you will need to use special characters or formatting in strings that can't be entered the same way as you would in a word processor. In these cases, you use "escape sequences".
+- What happens if we need a double quotation mark inside of your string? ˜Sometimes you will need to use special characters or formatting in strings that can't be entered the same way as you would in a word processor. In these cases, you use "escape sequences".
 - Syntax: backslash + letter (e.g., `"\n"`).
 - Examples:
 
@@ -340,6 +331,7 @@ var greeting = "Hi there!";
   // "\t" = tab
   "\tOnce upon a time..."
   => "     Once upon a time..."
+
   ```
 
 - More examples [here](http://www.javascriptkit.com/jsref/escapesequence.shtml).  
@@ -389,11 +381,12 @@ String methods
 
 # Syntax & Semantic Naming
 
-## Syntax (5/65)
+## Syntax (5/85)
 Variable syntax
 - Should be named using camelCase lettering.
   - First letter of first word lowercase. First letter of remaining words uppercase.
   - No spaces or punctuation between words.
+- try to make sure your variables are semantically named
 
   ```javascript
   // camelCase
@@ -422,7 +415,43 @@ Comments
 - Help out other developers and future you.
   - If anything, it will help us out when grading your projects!
 
-# Prompt (5/70)
+
+  ### Type Coercion(5/90)
+  Javascript will try to make sense of any strange operations you throw at it.
+  - By "strange", I mean subtracting a number from a string, or multiplying `null` by 100.
+  - It does this through something called "type coercion" -- converting data types.
+
+  You might encounter this when dealing with numerical values but for whatever reason some of them are in string form.
+    - Q: Have students guess what the results of the following code examples are...
+
+  ```javascript
+  // In some cases Javascript is helpful and converts strings to numbers in the correct way.
+  "3" - "2"
+  => 1
+
+  // ...but sometimes it doesn't. In this example, the + operator acts as if it's concatenating two strings.
+  "3" + "2"
+  => 32
+
+  // And this?
+  "five" * 5;
+  => NaN
+  ```
+
+  When in doubt, convert data types that should be numbers using `parseInt()`.
+
+  ```javascript
+  // parseInt converts a string to a number value, if available.
+  parseInt( "3" );
+  => 3
+
+  parseInt( "burrito" );
+  => NaN
+  ```
+
+  There are other examples of type coercion, but the point here isn't to remember them all. Just be aware that sometimes Javascript will fire weird results back at you with no explanation. Sometimes, type coercion might be the culprit.
+
+# Prompt (5/95)
 
 We've learned alot about basic data types, but it'd be nice if we had a way of getting user input into our browser! We'll learn some ways to use forms and such later in the course, but for now, we'll be getting user input using the `prompt()` function.
 
@@ -439,17 +468,26 @@ You can also pass in a string as an argument to have the pop up box contain that
 
 ```js
 var age = prompt("How old are you?")
+// if the user entered 25
+age + 23
+=> 48
 ```
 
-# CODING EXERCISE #1 + Break (20/90)
-Temperature conversion (Part I): [https://github.com/ga-dc/temperature_converter](https://github.com/ga-dc/temperature_converter)  
+> This is just one way in which we can get user input with javascript. Later we'll be using text fields and select boxes to get user input.
+
+# CODING EXERCISE #1 + Break (30/115)
+Temperature conversion (Part I): [temperature_converter](https://github.com/ga-dc/DOC_immersive/tree/master/w01/javascript-data-types-conditionals-loops/temperature_converter/readme.md)  
 
 # Composite Data Types
 
 Composite data types are collections that allow us to store multiple data types.
 - There are two kinds in Javascript. What are they?
+  - Arrays
+  - Objects
 
-## Arrays (10/100)
+> We'll only be going over arrays in this lesson, but we'll be covering objects in the next class.
+
+## Arrays (10/135)
 - Ordered collection of related data types.
 - Organized by index.
   - Indexing begins at 0 (e.g., first element in an array has an index of 0, the second has an index of 1, and so on).
@@ -510,7 +548,7 @@ Array methods
   - [MDN Array Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
   - Navigating documentation is a great skill to have. Some sets of documentation are harder to navigate than others, but if you have a sense of how to dig through a massive trove of information like MDN or RubyDocs, you'll become a much more efficient programmer.
 
-## Booleans (105/110)
+## Booleans (5/140)
 Two values: `true`, `false`.  
 
 Oftentimes you'll be producing boolean values when comparing two values
@@ -529,7 +567,7 @@ Oftentimes you'll be producing boolean values when comparing two values
 
 > What is the differences between the last two? When using `===`, it checks for both the data type and value. `==` only checks for value. Under the hood, though, `==` converts the data type to the same data type and then executes comparison.
 
-## true vs false (5/115)
+## true vs false (5/145)
 So we all know the boolean values of `true` and `false` But there is also a concept of "truthy" and "falsey" In Javascript, the following things are "falsey":
 - false
 - 0 (zero)
@@ -540,7 +578,7 @@ So we all know the boolean values of `true` and `false` But there is also a conc
 
 > Everything else is "truthy". Why might we need this programmatic concept of "truthy" and "falsey"?(ST-WG)
 
-## Comparison Operators (5/120)
+## Comparison Operators (5/150)
 
 - `&&`
 - `||`
@@ -569,7 +607,7 @@ Demonstrate comparison operators in node
 => false
 ```
 
-## Conditionals (15/135)
+## Conditionals (15/165)
 
 // Have an example somewhere where one of the more unusual "falsey" values (e.g., empty string) triggers a conditional.
 
@@ -606,16 +644,13 @@ else{
 }
 ```
 
+## You do: [Temperature Converter - Part II](https://github.com/ga-dc/DOC_immersive/tree/master/w01/javascript-data-types-conditionals-loops/temperature_converter/readme.md)
+# Loops(15/180)
 
-# BREAK (10min)
-
-
-## Loops(15/150)
-
-### For loop
+## For loop
 There are two ways to write a for loop.
 
-#### The first:
+### The first:
 
 ```javascript
 for(var i = 0; i < 10; i++){
@@ -660,22 +695,111 @@ What are the differences between `for` and `while`?
 
 ### Additional Exercises
 
-# CODING EXERCISE #2 (20min)
-
-Temperature conversion (Part II): [https://github.com/ga-dc/temperature_converter](https://github.com/ga-dc/temperature_converter)  
-
 ### You do - Fizzbuzz(can use conditionals)(20m)
+Remember that pseudocode you wrote above? Let's write some actual code that executes
+[Choose your own adventure](https://github.com/ga-wdi-exercises/choose_your_own_adventure_js) to in class ex
 
-### Homework
-- [Choose your own adventure](https://github.com/ga-dc/choose_your_own_adventure_js)
-- [JS Basics Quiz](https://github.com/ga-dc/js-basics-hw)
+Here is some logic we may need to do going forward in the class.
 
-# Review Questions
-1. When would you use an array over an object? And vice-versa?
-- What is the difference between `undefined` and `null`?
-- Provide an example of a semantically-named variable. Explain your choice.
-- What role does Javascript play on a website?
-- What are the five primitive data types?
-- What are the two composite data types? When would you use each?
-- What is an example of type coercion?
-- What is an example of a semantically-named variable?
+### You do - [ASM data exercise](https://github.com/ga-dc/DOC_immersive/tree/master/w01/javascript-data-types-conditionals-loops/asm_data_arrays/readme.md)
+
+### Functions
+- Describe what a JavaScript function is.
+- Recognize the parts of a function.
+- Write a function in JavaScript using a declaration and an expression.
+- Define hoisting.
+- Differentiate between referencing and invoking a function.
+- State the difference between a function's output and side effects.
+
+## Functions
+
+### Intro (5 / 5)
+
+The content of an object isn't limited to properties. We can also give objects functionality in the form of **methods**.
+* Before we do that, however, we should review functions.
+
+What’s a function?
+* A reusable block of Javascript code.
+* Simply put, a function is a block of code that takes an input, process that input and then produces an output.
+* Fundamental component of Javascript.
+* Analogy: Quizno's Oven
+
+### Recognize the parts (10 / 15)
+
+#### Function Container
+
+```js
+function multiply(){
+
+}
+```
+
+#### Input ("Arguments" or "Parameters")
+
+```js
+function multiply( num1, num2 ){
+
+}
+```
+#### Output and Side Effects
+
+```js
+function multiply( num1, num2 ){
+  console.log( num1 * num2 );
+  return num1 * num2;
+}
+```
+* Output: return value.
+* Side Effects: e.g., print statements.
+
+Q. Does a function need an input, output and/or side effects to work?
+---
+
+> A. Short answer. No.  Note: There is always an output (undefined). Discuss.
+
+#### Calling and Referencing a Function (5 / 20)
+
+We've defined a function. Now we need to call it...
+
+```js
+// Call the multiply function.
+multiply( 2, 5 );
+
+// What happens if we reference the function without parentheses?
+multiply;
+```
+
+### Why do we use functions? (5 / 25)
+
+Say we wanted the square of a number without using the above function. How would we do that?
+
+
+Benefits of functions
+* Reusability.
+* DRYness.
+* Naming convention (describes intent).
+
+### Function Declarations and Expressions (5 / 30)
+
+There are two ways to define or declare a function...we'll only be using one for this class.
+
+#### Declaration
+
+``` javascript
+function multiply( num1, num2 ) {
+  return num1 * num2;
+}
+```
+
+> Theres another way to create functions called expressions. The differences are relatively minimal except for hoisting. We won't be going over those differences in the scope of this course but the topic is very googleable(JS hoisting).
+
+You do - Refactor temperature converter to contain a function
+You do - Refactor asm exercise to use a function
+
+## Closing, Q&A (10 / 150)
+
+---
+
+## Further Reading
+
+* [Javascript Scoping and Hoisting](http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html)
