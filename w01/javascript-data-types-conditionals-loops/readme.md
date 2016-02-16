@@ -696,12 +696,11 @@ What are the differences between `for` and `while`?
 ### Additional Exercises
 
 ### You do - Fizzbuzz(can use conditionals)(20m)
-Remember that pseudocode you wrote above? Let's write some actual code that executes
-[Choose your own adventure](https://github.com/ga-wdi-exercises/choose_your_own_adventure_js) to in class ex
-
-Here is some logic we may need to do going forward in the class.
+Remember that pseudocode you wrote above? Let's write some actual code that executes the pseudocode we wrote before.
 
 ### You do - [ASM data exercise](https://github.com/ga-dc/DOC_immersive/tree/master/w01/javascript-data-types-conditionals-loops/asm_data_arrays/readme.md)
+
+Here is some logic we may need to do going forward in the class.
 
 ### Functions
 - Describe what a JavaScript function is.
@@ -795,6 +794,8 @@ function multiply( num1, num2 ) {
 
 You do - Refactor temperature converter to contain a function
 You do - Refactor asm exercise to use a function
+
+### You do - [Choose your own adventure](https://github.com/ga-wdi-exercises/choose_your_own_adventure_js)
 
 ## Closing, Q&A (10 / 150)
 

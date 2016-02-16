@@ -36,7 +36,7 @@ var annualPay = [
 
 Each index value represents the same state for each corresponding array. Examples:
 
-`Alabama's number of Employees is 234725 and annual pay of 11759599`
+`Alabama's number of Employees is 234726 and annual pay of 11759599`
 `Maine's number of Employees is 46741 and annual pay of 2477958`
 
 > Another thing to note is that the annual pay is a number of thousands of dollars paid to those in the manufacturing industry for that particular state.
