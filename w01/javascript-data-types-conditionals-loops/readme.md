@@ -74,6 +74,7 @@ Pseudocode is a powerful way developers plan out their code. It's a way to break
 
 ## I do - Write pseudocode for the following:
   - A program that displays all numbers from 1 - 100
+  
   ```js
     // for each number between 1 to 100
       // display the number
