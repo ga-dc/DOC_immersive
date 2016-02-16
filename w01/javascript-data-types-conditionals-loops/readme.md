@@ -74,7 +74,7 @@ Pseudocode is a powerful way developers plan out their code. It's a way to break
 
 ## I do - Write pseudocode for the following:
   - A program that displays all numbers from 1 - 100
-  
+
   ```js
     // for each number between 1 to 100
       // display the number
@@ -304,42 +304,7 @@ So the main difference between `undefined` and `null` is intention. Other than t
 
 ## Break(10/70)
 
-### Type Coercion(5/75)
-Javascript will try to make sense of any strange operations you throw at it.
-- By "strange", I mean subtracting a number from a string, or multiplying `null` by 100.
-- It does this through something called "type coercion" -- converting data types.
-
-You might encounter this when dealing with numerical values but for whatever reason some of them are in string form.
-  - Q: Have students guess what the results of the following code examples are...
-
-```javascript
-// In some cases Javascript is helpful and converts strings to numbers in the correct way.
-"3" - "2"
-=> 1
-
-// ...but sometimes it doesn't. In this example, the + operator acts as if it's concatenating two strings.
-"3" + "2"
-=> 32
-
-// And this?
-"five" * 5;
-=> NaN
-```
-
-When in doubt, convert data types that should be numbers using `parseInt()`.
-
-```javascript
-// parseInt converts a string to a number value, if available.
-parseInt( "3" );
-=> 3
-
-parseInt( "burrito" );
-=> NaN
-```
-
-There are other examples of type coercion, but the point here isn't to remember them all. Just be aware that sometimes Javascript will fire weird results back at you with no explanation. Sometimes, type coercion might be the culprit.
-
-## Strings (10/85)
+## Strings (10/80)
 Strings are words in javascript!
 
 We instantiate strings using the "string literal" form.
@@ -416,7 +381,7 @@ String methods
 
 # Syntax & Semantic Naming
 
-## Syntax (5/90)
+## Syntax (5/85)
 Variable syntax
 - Should be named using camelCase lettering.
   - First letter of first word lowercase. First letter of remaining words uppercase.
@@ -449,6 +414,42 @@ Comments
 - Use to explain the purpose or reasoning behind a piece of code.
 - Help out other developers and future you.
   - If anything, it will help us out when grading your projects!
+
+
+  ### Type Coercion(5/90)
+  Javascript will try to make sense of any strange operations you throw at it.
+  - By "strange", I mean subtracting a number from a string, or multiplying `null` by 100.
+  - It does this through something called "type coercion" -- converting data types.
+
+  You might encounter this when dealing with numerical values but for whatever reason some of them are in string form.
+    - Q: Have students guess what the results of the following code examples are...
+
+  ```javascript
+  // In some cases Javascript is helpful and converts strings to numbers in the correct way.
+  "3" - "2"
+  => 1
+
+  // ...but sometimes it doesn't. In this example, the + operator acts as if it's concatenating two strings.
+  "3" + "2"
+  => 32
+
+  // And this?
+  "five" * 5;
+  => NaN
+  ```
+
+  When in doubt, convert data types that should be numbers using `parseInt()`.
+
+  ```javascript
+  // parseInt converts a string to a number value, if available.
+  parseInt( "3" );
+  => 3
+
+  parseInt( "burrito" );
+  => NaN
+  ```
+
+  There are other examples of type coercion, but the point here isn't to remember them all. Just be aware that sometimes Javascript will fire weird results back at you with no explanation. Sometimes, type coercion might be the culprit.
 
 # Prompt (5/95)
 
