@@ -12,7 +12,7 @@
 - Write a for loop and while loop in JS and differentiate between them
 - Utilize loops to iterate through complex data types
 
-# HTML, CSS and Javascript (20/20)
+# HTML, CSS and Javascript (15/15)
 HTML (content), CSS (style) and Javascript (behavior) as the main components of front-end web development.
 - Q: Sum up the roles HTML and CSS play on a website in a couple of sentences.
   - HTML: Structure
@@ -44,7 +44,7 @@ So, to the main three components of front-end web development up in one word eac
 - CSS: Styling
 - Javascript: Behavior
 
-# JS: The Client-Side Programming Language of the Web (5/25)
+# JS: The Client-Side Programming Language of the Web (5/20)
 
 - Brief history: Created in 10 days by Brendan Eyck, of Mozilla. *Not* related to Java in any way but its name.
   - "Java" is to "Javascript" as "ham" is to "hamster"
@@ -56,7 +56,7 @@ So, to the main three components of front-end web development up in one word eac
   - Using the tools you learned in the pre-work (e.g., data types, loops, functions).
 
 ## Why is it the dominant programming language of the web?
-- Barriers to entry for learning Javasc0ript are very low.
+- Barriers to entry for learning Javascript are very low.
   - No additional software required to run it. Just a text editor and a browser.
     - You can even run it directly in the browser via its Javascript console.
       - Ex. Hide images on the GA website.
@@ -66,9 +66,31 @@ So, to the main three components of front-end web development up in one word eac
   - One of the biggest additions to JS was AJAX, which allows use to reload parts of a page without refreshing the entire thing (just like on Facebook). Big implications for User Experience.
 - A lot of frameworks and libraries -- like Backbone and jQuery -- have emerged that enable us to do so much more -- and do it quickly -- with Javascript.
 
-# Setting up our environment (5/30)
+## Pseudocode (15/35)
 
-## First, create your HTML and JS
+Before we dive into JS. I want to talk a little bit about pseudocode.
+
+Pseudocode is a powerful way developers plan out their code. It's a way to break down larger problems into smaller component pieces that make the problem easier to solve. Basically you write in english(not code) what you want your program to do. It can be extremely helpful and the code pretty much writes itself with good pseudocode! Many developers write pseudocode as comments so that they can fill in actual code directly below them.
+
+### I do - Write pseudocode for the following:
+  - A program that displays all numbers from 1 - 100
+  ```js
+    // for each number between 1 to 100
+      // display the number
+  ```
+
+### You do - Write pseudocode for the following:
+  - A program that displays all odd numbers from 1 - 100
+  - A program that displays all numbers that aren't multiples of 3 or 5.
+  - A program that displays all numbers. If the number being displayed is a multiple of 3, it will display "fizz". If it is a multiple of 5, it will display "buzz"
+
+# Setting up our environment (5/25)
+
+## Create a repository called DOC-exercises using github desktop
+
+> What you call the respository doesn't really matter. Going forward in this class, if we're creating any code from scratch with no starter code, you may place your code here.
+
+## Next, create your HTML and JS files
 
 - `index.html` and `script.js`
 
@@ -76,7 +98,7 @@ So, to the main three components of front-end web development up in one word eac
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Yo</title>
+    <title>Intro to Javascript</title>
     <script src="script.js"></script>
   </head>
   <body>
@@ -85,9 +107,9 @@ So, to the main three components of front-end web development up in one word eac
 </html>
 ```
 
-## Next, open the site in Chrome, and open the Dev Tools
+## Finally, open the site(`index.html`) in Chrome, and open the Dev Tools
 
-- Cntrl + Shift + I
+- Ctrl + Shift + I
 - The "Console" is a REPL
   - “Read-Eval-Print Loop”.
   - Programming environment that lets us run Javascript code one line at a time.
@@ -97,7 +119,7 @@ So, to the main three components of front-end web development up in one word eac
     3. (P)rints it to the console.
     4. Then it (L)oops back to the beginning, ready to (R)ead the next line of code we feed it.
 
-> `⌘ + ⌥ + i` enters you in the the chrome dev tools(if you're using chrome...) Here you can do a bunch of stuff like inspect elements and looks at the html. More importantly for this class though, is it allows you to access the console which interacts with the JS you loaded to your page. In our case we'll see that interaction with the code below
+> `⌘ + ⌥ + i`(mac) or `ctrl + shift + i`(windows) enters you in the the chrome dev tools(if you're using chrome...) Here you can do a bunch of stuff like inspect elements and looks at the html. More importantly for this class though, is it allows you to access the console which interacts with the JS you loaded to your page. In our case we'll see that interaction with the code below
 
 In your `script.js` file add the following:
 ```js
@@ -108,7 +130,7 @@ console.log("hello world")
 
 # Primitive Data Types
 
-## Intro (5/35)
+## Intro (5/30)
 Primitive data types are the building blocks of Javascript.
 - Whenever you do anything in Javascript, you are creating and changing these basic pieces of information.
 
@@ -772,103 +794,9 @@ function multiply( num1, num2 ) {
 }
 ```
 
-#### Expression
+> Theres another way to create functions called expressions. The differences are relatively minimal except for hoisting. We won't be going over those differences in the scope of this course but the topic is very googleable(JS hoisting).
 
-``` javascript
-var multiply = function ( num1, num2 ) {
-  return num1 * num2;
-}
-```
-
-#### Declarations vs. Expressions
-
-Both do the same thing and run the same chunk of code. But they are different.
-* What differences do you notice?
-
-**Function declarations** define functions without assigning them to variables.
-
-**Function expressions** save anonymous functions to variables.
-
-While we call/reference functions defined through declarations and expressions the same way, they do have a subtle but important difference...
-
-> Declarations are processed before any code is executed, meaning you can call functions before they are declared. This behavior is known as **hoisting**.
-
-
-### Hoisting (10 / 110)
-
-What do you think will happen when we run the below code...
-```js
-multiply( 3, 5 );
-var multiply = function( num1, num2 ){           // NOTE: This is a function expression
-  return num1 * num2;
-}
-```
-
-Surely the same thing will happen when we run the below code...
-
-```js
-multiply( 3, 5 );
-function multiply( num1, num2 ) {               // NOTE: This is a function declaration
-  return num1 * num2;
-}
-```
-> We can successfully call the square function before declaring it. When our script file loads, it essentially processes all function declarations first, and then runs the rest of our Javascript from top to bottom.
-
-Knowing this, what will happen each time we call `express` and `declare` in the below example?
-
-```js
-express();        // What happens when we run this function at this point in the code?
-declare();        // What about now?        
-
-var express = function() {
-    console.log('Function expression called.');
-};
-
-express();        // ???
-declare();        // ???
-
-function declare() {
-    console.log('Function declaration called.');
-}
-```
-
-This is a neat feature, but can you think of a potential pitfall of "hoisting" too often?
-* Code organization and readability.
-
-## Methods (15 / 125)
-
-Methods are functions that are attached to some object.
-
-```js
-// Our car now has a drive method...
-var car = {
-  make: "Honda",
-  model: "Civic",
-  color: "red",
-  drive: function(){
-    console.log("vroom vroom");
-  },
-
-  // Methods can take arguments
-  gps: function( location ){
-    console.log( "Beep boop, driving to " + location );
-  }
-}
-
-// We can run the car's two methods like so...
-car.drive();
-car.paint( "blue" );
-console.log( "Car color is: " + car.color );
-```
-
-With methods as part of our Javascript toolbox, we now have a cool interface with which we can interact with our objects.
-* Why would custom methods be a preferred way to modify object properties vs. using object literal notation?
-
-We've only scratched the surface for objects. We're going to dive much deeper into them later on in the course.
-
-## Exercise + Homework: Calculator (15 / 140)
-
-[Javascript Calculator](https://github.com/ga-dc/js-calculator)
+## TODO: refactor asm exercise to use a function
 
 ## Closing, Q&A (10 / 150)
 
