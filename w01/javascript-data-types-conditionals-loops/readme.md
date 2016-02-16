@@ -84,6 +84,8 @@ Pseudocode is a powerful way developers plan out their code. It's a way to break
   - A program that displays all numbers that aren't multiples of 3 or 5.
   - A program that displays all numbers. If the number being displayed is a multiple of 3, it will display "fizz". If it is a multiple of 5, it will display "buzz"
 
+> Make sure you keep this pseudocode around, we're going to write the actual code for this later!
+
 # Setting up our environment (5/40)
 
 ## Create a repository called DOC-exercises using github desktop
@@ -471,16 +473,19 @@ age + 23
 
 > This is just one way in which we can get user input with javascript. Later we'll be using text fields and select boxes to get user input.
 
-// TODO: adjust temperature converter exercise
-# CODING EXERCISE #1 + Break (20/90)
-Temperature conversion (Part I): [https://github.com/ga-dc/temperature_converter](https://github.com/ga-dc/temperature_converter)  
+# CODING EXERCISE #1 + Break (30/115)
+Temperature conversion (Part I): [temperature_converter](https://github.com/ga-dc/DOC_immersive/tree/master/w01/javascript-data-types-conditionals-loops/temperature_converter/readme.md)  
 
 # Composite Data Types
 
 Composite data types are collections that allow us to store multiple data types.
 - There are two kinds in Javascript. What are they?
+  - Arrays
+  - Objects
 
-## Arrays (10/100)
+> We'll only be going over arrays in this lesson, but we'll be covering objects in the next class.
+
+## Arrays (10/135)
 - Ordered collection of related data types.
 - Organized by index.
   - Indexing begins at 0 (e.g., first element in an array has an index of 0, the second has an index of 1, and so on).
@@ -541,7 +546,7 @@ Array methods
   - [MDN Array Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
   - Navigating documentation is a great skill to have. Some sets of documentation are harder to navigate than others, but if you have a sense of how to dig through a massive trove of information like MDN or RubyDocs, you'll become a much more efficient programmer.
 
-## Booleans (105/110)
+## Booleans (5/140)
 Two values: `true`, `false`.  
 
 Oftentimes you'll be producing boolean values when comparing two values
@@ -560,7 +565,7 @@ Oftentimes you'll be producing boolean values when comparing two values
 
 > What is the differences between the last two? When using `===`, it checks for both the data type and value. `==` only checks for value. Under the hood, though, `==` converts the data type to the same data type and then executes comparison.
 
-## true vs false (5/115)
+## true vs false (5/145)
 So we all know the boolean values of `true` and `false` But there is also a concept of "truthy" and "falsey" In Javascript, the following things are "falsey":
 - false
 - 0 (zero)
@@ -571,7 +576,7 @@ So we all know the boolean values of `true` and `false` But there is also a conc
 
 > Everything else is "truthy". Why might we need this programmatic concept of "truthy" and "falsey"?(ST-WG)
 
-## Comparison Operators (5/120)
+## Comparison Operators (5/150)
 
 - `&&`
 - `||`
@@ -600,7 +605,7 @@ Demonstrate comparison operators in node
 => false
 ```
 
-## Conditionals (15/135)
+## Conditionals (15/165)
 
 // Have an example somewhere where one of the more unusual "falsey" values (e.g., empty string) triggers a conditional.
 
@@ -637,16 +642,13 @@ else{
 }
 ```
 
+## You do: [Temperature Converter - Part II](https://github.com/ga-dc/DOC_immersive/tree/master/w01/javascript-data-types-conditionals-loops/temperature_converter/readme.md)
+# Loops(15/180)
 
-# BREAK (10min)
-
-// TODO: temp converter using conditionals
-## Loops(15/150)
-
-### For loop
+## For loop
 There are two ways to write a for loop.
 
-#### The first:
+### The first:
 
 ```javascript
 for(var i = 0; i < 10; i++){
@@ -675,8 +677,6 @@ for(i in names){
 
 ### You Do - Write a for loop that prints odd numbers to 100. Do not use conditionals
 
-
-
 ### While Loop(15m)
 ```javascript
 var i = 0;
@@ -693,20 +693,13 @@ What are the differences between `for` and `while`?
 
 ### Additional Exercises
 
-# CODING EXERCISE #2 (20min)
-
-Temperature conversion (Part II): [https://github.com/ga-dc/temperature_converter](https://github.com/ga-dc/temperature_converter)  
-
 ### You do - Fizzbuzz(can use conditionals)(20m)
-
-
-
-TODO: Convert [Choose your own adventure](https://github.com/ga-dc/choose_your_own_adventure_js) to in class ex
+Remember that pseudocode you wrote above? Let's write some actual code that executes
+[Choose your own adventure](https://github.com/ga-wdi-exercises/choose_your_own_adventure_js) to in class ex
 
 Here is some logic we may need to do going forward in the class.
 
-TODO: ASM data array loop exercise
-//   - grab 2 data sets
+### You do - [ASM data exercise](https://github.com/ga-dc/DOC_immersive/tree/master/w01/javascript-data-types-conditionals-loops/asm_data_arrays/readme.md)
 
 ### Functions
 - Describe what a JavaScript function is.
@@ -718,7 +711,7 @@ TODO: ASM data array loop exercise
 
 ## Functions
 
-### Intro (5 / 75)
+### Intro (5 / 5)
 
 The content of an object isn't limited to properties. We can also give objects functionality in the form of **methods**.
 * Before we do that, however, we should review functions.
@@ -729,7 +722,7 @@ What’s a function?
 * Fundamental component of Javascript.
 * Analogy: Quizno's Oven
 
-### Recognize the parts (10 / 85)
+### Recognize the parts (10 / 15)
 
 #### Function Container
 
@@ -762,7 +755,7 @@ Q. Does a function need an input, output and/or side effects to work?
 
 > A. Short answer. No.  Note: There is always an output (undefined). Discuss.
 
-#### Calling and Referencing a Function (5 / 90)
+#### Calling and Referencing a Function (5 / 20)
 
 We've defined a function. Now we need to call it...
 
@@ -774,7 +767,7 @@ multiply( 2, 5 );
 multiply;
 ```
 
-### Why do we use functions? (5 / 95)
+### Why do we use functions? (5 / 25)
 
 Say we wanted the square of a number without using the above function. How would we do that?
 
@@ -784,9 +777,9 @@ Benefits of functions
 * DRYness.
 * Naming convention (describes intent).
 
-### Function Declarations and Expressions (5 / 100)
+### Function Declarations and Expressions (5 / 30)
 
-There are two ways to define or declare a function...
+There are two ways to define or declare a function...we'll only be using one for this class.
 
 #### Declaration
 
@@ -798,7 +791,8 @@ function multiply( num1, num2 ) {
 
 > Theres another way to create functions called expressions. The differences are relatively minimal except for hoisting. We won't be going over those differences in the scope of this course but the topic is very googleable(JS hoisting).
 
-## TODO: refactor asm exercise to use a function
+You do - Refactor temperature converter to contain a function
+You do - Refactor asm exercise to use a function
 
 ## Closing, Q&A (10 / 150)
 
