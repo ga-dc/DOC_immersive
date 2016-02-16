@@ -29,45 +29,40 @@
 - Use the GitHub for Windows client to commit to a git repository
 - Deploy using GitHub Pages.
 
-### Javascript
-- describe the role Javascript plays alongside HTML and CSS.
-- describe what a variable is and how it holds data.
-- give variables semantic names to provide clarity on data that is being stored.
-- list and describe the primitive data types.
-- utilize mathematical operators in Javascript.
-- define type coercion.
-- use `prompt` to get user input
-- use `console.log` to display debugging information in the dev tools
-- understand booleans in JS and their use case
-- describe why control flow is utilized in computer programming
-- write an if, else if, and else statement in JS
-- write a for loop and while loop in JS and differentiate between them
-- define and use complex data types.
-- utilize loops to iterate through complex data types
+### Intro to Javascript
 
-// variables_ex, temp converter, choose_your_own_adventure_js
+- Describe the role Javascript plays alongside HTML and CSS.
+- Describe what a variable is and how it holds data.
+- Give variables semantic names to provide clarity on data that is being stored.
+- List and describe the primitive data types.
+- Utilize mathematical operators in Javascript.
+- Define type coercion.
+- Use `prompt` to get user input
+- Use `console.log` to display debugging information in the dev tools
+- Understand booleans in JS and their use case
+- Describe why control flow is utilized in computer programming
+- Write an if, else if, and else statement in JS
+- Write a for loop and while loop in JS and differentiate between them
+- Define and use complex data types.
+- Utilize loops to iterate through complex data types
 
 ### Javascript Objects
-- differentiate between an object and an array
-- create an object in javascript using literal notation
-- retrieve, add, and update properties from objects
-- describe common use casses for objects and arrays
-- navigate and access properties in nested data
-- iterate over an array of objects
+
+- Differentiate between an object and an array
+- Create an object in javascript using literal notation
+- Retrieve, add, and update properties from objects
+- Describe common use cases for objects and arrays
+- Navigate and access properties in nested data
+- Iterate over an array of objects
 
 ### jQuery and the DOM
+
 - Explain what the DOM is and how it is structured
 - Select and target DOM elements using a jQuery selector
 - Create, read, update, and delete DOM elements
 - Change the attributes or content of a DOM element
-- use data to populate the DOM
-- use event listeners to respond to user actions
-
-// build drop down boxes from arrays
-// use chosen js?
-// something to practice for objects
-// pixartJS
-// use hardcoded data from ASM API to build html bar chart
+- Use data to populate the DOM
+- Use event listeners to respond to user actions
 
 ### AJAX
 - Explain the difference between synchronous and asynchronous program execution
