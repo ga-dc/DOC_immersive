@@ -476,7 +476,7 @@ age + 23
 > This is just one way in which we can get user input with javascript. Later we'll be using text fields and select boxes to get user input.
 
 # CODING EXERCISE #1 + Break (30/115)
-Temperature conversion (Part I): [temperature_converter](https://github.com/ga-dc/DOC_immersive/tree/master/w01/javascript-data-types-conditionals-loops/temperature_converter/readme.md)  
+Temperature conversion (Part I): [temperature_converter](https://github.com/ga-dc/DOC_immersive/tree/master/w01/02-javascript-data-types-conditionals-loops/temperature_converter)  
 
 # Composite Data Types
 
