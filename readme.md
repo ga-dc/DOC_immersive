@@ -5,7 +5,8 @@
 ### HTML
 
 Reading:
-[Shay Howe's Guide to HTML/CSS](http://learn.shayhowe.com)
+* [Shay Howe's Guide to HTML/CSS](http://learn.shayhowe.com)
+* [Slides from today](w01/01b-intro-to-html/Intro%20to%20HTML%20&%20CSS.pdf)
 
 - Describe the role of HTML, CSS and JS on the web
 - Describe the syntax of HTML tags / elements
