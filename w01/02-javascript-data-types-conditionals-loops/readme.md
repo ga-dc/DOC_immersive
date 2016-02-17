@@ -644,7 +644,7 @@ else{
 }
 ```
 
-## You do: [Temperature Converter - Part II](https://github.com/ga-dc/DOC_immersive/tree/master/w01/javascript-data-types-conditionals-loops/temperature_converter/readme.md)
+## You do: [Temperature Converter - Part II](https://github.com/ga-dc/DOC_immersive/tree/master/w01/02-javascript-data-types-conditionals-loops/temperature_converter)
 # Loops(15/180)
 
 ## For loop
@@ -698,7 +698,7 @@ What are the differences between `for` and `while`?
 ### You do - Fizzbuzz(can use conditionals)(20m)
 Remember that pseudocode you wrote above? Let's write some actual code that executes the pseudocode we wrote before.
 
-### You do - [ASM data exercise](https://github.com/ga-dc/DOC_immersive/tree/master/w01/javascript-data-types-conditionals-loops/asm_data_arrays/readme.md)
+### You do - [ASM data exercise](https://github.com/ga-dc/DOC_immersive/tree/master/w01/02-javascript-data-types-conditionals-loops/asm_data_arrays)
 
 Here is some logic we may need to do going forward in the class.
 
