@@ -19,10 +19,6 @@ simple HTML pages to share our visualizations on the web.
 We'll be learning and practicing the most common tags and style rules, which
 should cover 90% of cases, or more.
 
-## Intro to HTML
-
-This content is covered in the [HTML & CSS Slideshow](Intro to HTML & CSS.pdf).
-
 ### Exercises
 
 [Wendy Bite](https://github.com/ga-wdi-exercises/wendy_bite)
