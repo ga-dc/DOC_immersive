@@ -13,9 +13,8 @@ function graphState(id) {
 
 function buildStateSelect() {
   var states = fipsCodes();
-  sortedStatesArray = sortedKeyArray(states);
-  sortedStatesArray.forEach(function(id){
-    $(".states").append($("<option value='" + id + "'>" + states[id] + "</option>"));
+  states.forEach(function(state){
+    $(".states").append($("<option value='" + state.fipsCode + "'>" + state.stateName + "</option>"));
   });
   $('.states').on("change", function() {
     graphState($(this).val());
@@ -24,62 +23,57 @@ function buildStateSelect() {
 }
 
 function fipsCodes() {
-  return {
-    "01": "Alabama",
-    "02": "Alaska",
-    "04": "Arizona",
-    "05": "Arkansas",
-    "06": "California",
-    "08": "Colorado",
-    "09": "Connecticut",
-    "10": "Delaware",
-    "11": "District of Columbia",
-    "12": "Florida",
-    "13": "Geogia",
-    "15": "Hawaii",
-    "16": "Idaho",
-    "17": "Illinois",
-    "18": "Indiana",
-    "19": "Iowa",
-    "20": "Kansas",
-    "21": "Kentucky",
-    "22": "Louisiana",
-    "23": "Maine",
-    "24": "Maryland",
-    "25": "Massachusetts",
-    "26": "Michigan",
-    "27": "Minnesota",
-    "28": "Mississippi",
-    "29": "Missouri",
-    "30": "Montana",
-    "31": "Nebraska",
-    "32": "Nevada",
-    "33": "New Hampshire",
-    "34": "New Jersey",
-    "35": "New Mexico",
-    "36": "New York",
-    "37": "North Carolina",
-    "38": "North Dakota",
-    "39": "Ohio",
-    "40": "Oklahoma",
-    "41": "Oregon",
-    "42": "Pennsylvania",
-    "44": "Rhode Island",
-    "45": "South Carolina",
-    "46": "South Dakota",
-    "47": "Tennessee",
-    "48": "Texas",
-    "49": "Utah",
-    "50": "Vermont",
-    "51": "Virginia",
-    "53": "Washington",
-    "54": "West Virginia",
-    "55": "Wisconsin",
-    "56": "Wyoming"
-  };
-}
-
-function sortedKeyArray(obj){
-  keys = Object.keys(obj);
-  return(keys.sort());
+  return [
+    { fipsCode: "01", stateName: "Alabama"},
+    { fipsCode: "02", stateName: "Alaska"},
+    { fipsCode: "04", stateName: "Arizona"},
+    { fipsCode: "05", stateName: "Arkansas"},
+    { fipsCode: "06", stateName: "California"},
+    { fipsCode: "08", stateName: "Colorado"},
+    { fipsCode: "09", stateName: "Connecticut"},
+    { fipsCode: "10", stateName: "Delaware"},
+    { fipsCode: "11", stateName: "District of Columbia"},
+    { fipsCode: "12", stateName: "Florida"},
+    { fipsCode: "13", stateName: "Geogia"},
+    { fipsCode: "15", stateName: "Hawaii"},
+    { fipsCode: "16", stateName: "Idaho"},
+    { fipsCode: "17", stateName: "Illinois"},
+    { fipsCode: "18", stateName: "Indiana"},
+    { fipsCode: "19", stateName: "Iowa"},
+    { fipsCode: "20", stateName: "Kansas"},
+    { fipsCode: "21", stateName: "Kentucky"},
+    { fipsCode: "22", stateName: "Louisiana"},
+    { fipsCode: "23", stateName: "Maine"},
+    { fipsCode: "24", stateName: "Maryland"},
+    { fipsCode: "25", stateName: "Massachusetts"},
+    { fipsCode: "26", stateName: "Michigan"},
+    { fipsCode: "27", stateName: "Minnesota"},
+    { fipsCode: "28", stateName: "Mississippi"},
+    { fipsCode: "29", stateName: "Missouri"},
+    { fipsCode: "30", stateName: "Montana"},
+    { fipsCode: "31", stateName: "Nebraska"},
+    { fipsCode: "32", stateName: "Nevada"},
+    { fipsCode: "33", stateName: "New Hampshire"},
+    { fipsCode: "34", stateName: "New Jersey"},
+    { fipsCode: "35", stateName: "New Mexico"},
+    { fipsCode: "36", stateName: "New York"},
+    { fipsCode: "37", stateName: "North Carolina"},
+    { fipsCode: "38", stateName: "North Dakota"},
+    { fipsCode: "39", stateName: "Ohio"},
+    { fipsCode: "40", stateName: "Oklahoma"},
+    { fipsCode: "41", stateName: "Oregon"},
+    { fipsCode: "42", stateName: "Pennsylvania"},
+    { fipsCode: "44", stateName: "Rhode Island"},
+    { fipsCode: "45", stateName: "South Carolina"},
+    { fipsCode: "46", stateName: "South Dakota"},
+    { fipsCode: "47", stateName: "Tennessee"},
+    { fipsCode: "48", stateName: "Texas"},
+    { fipsCode: "49", stateName: "Utah"},
+    { fipsCode: "50", stateName: "Vermont"},
+    { fipsCode: "51", stateName: "Virginia"},
+    { fipsCode: "53", stateName: "Washington"},
+    { fipsCode: "54", stateName: "West Virginia"},
+    { fipsCode: "55", stateName: "Wisconsin"},
+    { fipsCode: "56", stateName: "Wyoming"}
+  ];
 }
