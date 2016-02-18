@@ -1,3 +1,9 @@
+// var state = {};
+// state.name = states[0];
+// state.numEmployees = numEmployees[0];
+// state.annualPay = annualPay[0];
+
+
 var states = [
   "Alabama",
   "California",
@@ -26,23 +32,12 @@ var annualPay = [
   16119212
 ]
 
-results = [
-  {
-    name: "Alabama",
-    numEmployees: 234726,
-    annualPay: 11759599,
-    averageSalary: 50123
-  },
-  {
-    name: "California",
-    numEmployees: 1231239823,
-    annualPay: 3739978124,
-  },
-  ....
-]
-
-// start by making an empty results array
-// iterate over one of the arrays
-// each time (in the loop), make a new object
-// set the properties on that object using the 3 arrays (and the index `i`)
-// add the object to your results array
+var results = [];
+for(var i = 0; i < states.length; i++ ) {
+  var state = {
+    name: states[i],
+    numEmployees: numEmployees[i],
+    annualPay: annualPay[i]
+  };
+  results.push(state);
+}
