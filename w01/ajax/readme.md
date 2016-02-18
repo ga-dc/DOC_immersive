@@ -37,9 +37,11 @@ AJAX allows us to make a request for data, without locking up our UI. Gamechange
 
 For the first part of this lesson we'll be using the [Weather Underground API](http://www.wunderground.com/weather/api/d/docs). **Follow the link and sign up for a key.**
 
-Once you're ready, follow this link. Check out the example in the middle of the page. You'll see a URL   that looks something like: `http://api.wunderground.com/api/your_key/conditions/q/CA/San_Francisco.json`
-> Replace `your_key` with your actual key and visit that URL.
+Once you're ready, follow this link. Check out the example in the middle of the page. You'll see a URL   that looks something like: `http://api.wunderground.com/api/your_key/conditions/q/CA/San_Francisco.json`. Replace `your_key` with your actual key and visit that URL.
+
 > If you're using the key provided in the lesson plan, we only have a rate limit of 500 so please don't over use!
+
+> A note about keys. When you attach a key to a request, in this case through the URL, your basically telling the API who is making a request to the data. Protect your keys, you don't want people doing malicious things with your keys.
 
 You should see a really gigantic object/hash. It can be really intimidating at first. But let's just start clicking around till we find some information we might want to display.
 
@@ -141,6 +143,106 @@ Things you could include but are not limited to:
 ### Bonus
 - Make a 10 day forecast as well. (Hint: this will use a different url endpoint for your `$.getJSON` request)
 
-### Register for DOC api key.
+### ASM Exercise
 
 Follow this [link](https://www.commerce.gov/page/api-documentation-commercegov#api_key) and register for the DOC's api key. Once you submit the form they'll send you a key via email.
+
+After you've gotten a key, visit the following link using your key instead of `yourKeyHere`:
+
+```
+http://api.census.gov/data/timeseries/asm/state?get=NAICS_TTL,EMP,PAYANN,GEO_TTL&for=state:*&YEAR=2014&NAICS=31-33&key=yourKeyHere
+```
+
+If we visit this link, we'll see a big array of arrays of information about manufacturing. We actually built the [asm_arrays_exercise](https://github.com/ga-dc/DOC_immersive/tree/master/w01/02-javascript-data-types-conditionals-loops/asm_data_arrays) using the data from this link.
+
+> If we look at the first array, its contains headers that represent the different indexes for each array. IE the header at index 1 of the first array index indicates that the values at index 1 for the following arrays will be a value for EMP or employees.
+
+#### Let's see this data in javascript!
+
+Create the files we'll need to connect to this API!
+To complete this portion of the exercise, use a `$.getJSON` request to `console.log` the same arrays of ASM data you saw in the browser just moments ago.
+
+#### Creating a wrapper for the results.
+Currently the data is wrapped up in a bunch of arrays. It'll be much nicer to view this same data as an object. Where 1 object represents all of a states information. Currently the array does that, but not in a semantic meaningful way. Let's imagine that we took the current data set and saved it to a variable `results`:
+
+```js
+var results = [
+  [
+  "NAICS_TTL",
+  "EMP",
+  "PAYANN",
+  "GEO_TTL",
+  "YEAR",
+  "NAICS",
+  "state"
+  ],
+  [
+  "Manufacturing",
+  "234726",
+  "11759599",
+  "Alabama",
+  "2014",
+  "31-33",
+  "1"
+  ],
+  [
+  "Manufacturing",
+  "12933",
+  "552105",
+  "Alaska",
+  "2014",
+  "31-33",
+  "2"
+  ],
+  [
+  "Manufacturing",
+  "134860",
+  "8956139",
+  "Arizona",
+  "2014",
+  "31-33",
+  "4"
+  ]
+  // ... many more results follow
+```
+
+
+If we wanted to get Alabama's information and store it in a variable, we would write something like this:
+
+```
+var alabama = results[1]
+```
+
+If we wanted even more specific information, like the number of employees we could write something like `var employees = alabama[1]`. The only issue is 1 doesn't tell us anything about employees at all, it's just a number which doesn't tell us anything. It'd be really nice if we could do something like `alabama.employees` and be able to get a property of an object instead of using some cryptic integer to index an array.
+
+Let's fix that.
+
+In the `.done` promise, loop through the arrays to create an array of objects instead of an array of arrays. Here's an example of what a single object in our array will look like:
+
+```js
+{state: "Alabama", numEmployees: 234726, annualPay: 11759599}
+```
+
+> The importance in this portion of the exercise is to realize that we're just manipulating the format of the data. We're not changing any values. We're just providing a better interface so that our code speaks a little bit more semantically.
+
+#### Better yet.. lets refactor!
+There's alot of wrapper logic happening in our promise now. Let's abstract that functionality and build a function that will do that instead.
+
+The function should take the response from the AJAX request and manipulate the format such that they are objects in the sample above.
+
+#### Use the data
+Take the data that is now an array of objects and create some divs for each object.
+
+In each div:
+- the states name
+- the number of employees
+- and the annual pay
+
+#### Make a bar chart for the number of employees
+1. Find the state with the most employees and store that in a variable called `max_employees`
+2. For each state, display the same information as before
+  - in addition create a child div with a class of "bar"
+  - take the current state's employees and divide that by the `max_employees` to get a percentage value.
+  - define the styles for that child div we created to have a width equal to the percentage value
+
+> Additionally! Make sure you style everything with class "bar" to have some kind of height. Also when you get your percentage value, you'll probably also have to multiply by 100 because the actual value will be a decimal of some kind. eg. 0.75 == 75%
