@@ -8,15 +8,30 @@
 - Render new HTML content using data loaded from an Ajax request.
 
 ## Opening Framing (5/5)
+There's a significant amount of data that lives on the web. Just a crazy amount. It would be really nice if we had tools to access some of that data. With Javascript, we can. First, let's get a frame of reference/high level overview of how data works on the web.
 
-We've learned a bunch about how we can leverage JS to manipulate the DOM. We've taken some hardcoded data and done something with it. If I had to guess, I'd estimate that less 10 % of the content in the web today leverages hard coded data. So where does the rest of that data come from? We need the ability to access data using javascript.
+Let's take a look at the [amazon website](http://www.amazon.com/)
+
+If we enter `coding books` into the search, we can see a whole bunch of search results populate.
+
+(ST-WG) Do you think that every time someone hits the search button, a bunch of developers get together and hard code all of this html. So how does it happen?
+
+We can tell that there similar data coming through for each coding book. Things like price, rating, an image, whether or not you can get it through amazon prime, hardback/paperback, author. At a high level, some combination of back end and front end technology is taking this data and rendering a bunch of html and styles.
+
+We've learned a bunch about how we can leverage JS to manipulate the DOM. We've taken some hardcoded data and done something with it. Now, we need the ability to access data on the web using javascript.
+
+If we look at a [chart](https://www.census.gov/data/visualizations/2015/comm/cb15-15_manufacturing_employees.html) created by the census bureau, we can see some of the same concepts that are applied in the amazon website.
+
+Think of the states as the coding books we searched for on amazon. Millions of employees is just a property for a state. Much in the same way price was a property of a `coding book` in amazon.
+
+At the end of the day, we're just grabbing data and then doing something with it.
 
 ## Google maps - an example of AJAX at work
 Does anyone remember mapquest? How there were 4 arrows on the screen and you clicked on one and the entire page would refresh to a different segment of the map.
 
 Let's look at Google Maps.
 
-We don't want to sit around and wait for code to execute before we load the rest of our script. It would be really nice if we could just describe what we want to happen when the code finally does execute, in a callback.
+AJAX allows us to make a request for data, without locking up our UI. Gamechanger. At a high level, it makes a request to some server for data and when the request comes back we're able to act on that data. With AJAX, we can access data without having to be locked out of our logic.
 
 ## `$.ajax`- JSON (10/25)
 
@@ -98,14 +113,21 @@ We can drill through this response just like any other JS object.
 })
 ```
 
+> In this particular done promise, it just logs the temperature in fahrenheit when the response comes back from the `$.getJSON` request.
+
 ## YOU DO- Weather App: DOM Manipulation Using Response Data (40/90)
 
 Take our existing code for the the weather underground app. Instead of logging the temperature, the `.done()` promise should create a div with the current wind speed in mph.  
 
-### Create Interface for getting weather
+### Create Interface for getting a city and state to dynamically change the url
 
 1. Create an input text field for City and State in the HTML.  
+
+> hint: create input tags in your html
+
 2. Have the endpoint url for the `$.getJSON` change dynamically based on user input from those text fields.   
+
+> hint: get the value of the input tags in order to change the url to be the city and state the user inputs
 
 ### Create a Weather App!
 1. Instead of grabbing just the current wind speed give a general description of weather for a city and state the user specifies.
@@ -118,3 +140,7 @@ Things you could include but are not limited to:
 
 ### Bonus
 - Make a 10 day forecast as well. (Hint: this will use a different url endpoint for your `$.getJSON` request)
+
+### Register for DOC api key.
+
+Follow this [link](https://www.commerce.gov/page/api-documentation-commercegov#api_key) and register for the DOC's api key. Once you submit the form they'll send you a key via email.
