@@ -9,7 +9,7 @@
 - Navigate and access properties in nested data
 - Iterate over an array of objects
 
-## Intro to Objects (5 / 60)
+## Intro to Objects
 
 In JavaScript, Objects are arbitrary collections of properties; we can add or remove these properties as we please. One way to create an object is by using a curly brace notation.
 
@@ -25,7 +25,7 @@ Objects are a complex data type - usually referred to as an *unordered* list (or
 * They are a collection of key-value pairs called properties.
 * The keys which we explicitly state when defining a property are analogous to our array indexes. They are how we access the associated value (more below).
 
-### Turn and Jot: Model a Student (5 / 65)
+### Turn and Jot: Model a Student
 
 You're goal is to pseudo-code an object literal:
 
@@ -33,7 +33,7 @@ You're goal is to pseudo-code an object literal:
 * Take 3 minutes to construct your object literal with appropriate key value pairs by drawing it on the table
 * **Bonus - One key value pair contains an array**
 
-### You DO: Interacting with Objects (30 / 95)
+### You DO: Interacting with Objects
 
 **Read through the below, and then complete the exercise with your partner**
 
@@ -103,7 +103,7 @@ Object.keys( car );
 
 ### Exercise
 
-Create a variable named `wdiStudent` and assign it to an object literal.
+Create a variable named `dataVisStudent` and assign it to an object literal.
 
 1. Give your student at least three properties.
 2. One must have a key that contains a hyphen.
@@ -113,11 +113,11 @@ Create a variable named `wdiStudent` and assign it to an object literal.
 6. Delete one attribute.
 7. Iterate through and print out all of the student's key-value pairs.
 
-**Bonus:** Write a function that returns your `wdiStudent` object
+**Bonus:** Write a function that returns your `dataVisStudent` object
 
 > [Solution](https://gist.github.com/nolds9/efdb0a320e7143f42e96)
 
-### Nested Collections (5 / 100)
+### Nested Collections
 
 Object properties aren't limited to simple data types. We can also nest collections inside of collections.
 
@@ -144,9 +144,9 @@ var car = {
 * "Neutral" (i.e., array value within an object)?
 * "6 horses" (i.e., object value within an object)?
 
-### Break (10 / 110)
+### Break
 
-### You Do: Big Ol' Twitter Object (15 / 125)
+### You Do: Big Ol' Twitter Object
 
 As this course continues you will encounter plenty of Javascript objects in the wild. Spend **10 minutes** on the following...
 * Follow the link below and answer the questions in bold.
@@ -155,9 +155,9 @@ As this course continues you will encounter plenty of Javascript objects in the 
 
 [Twitter JSON Exercise](https://github.com/ga-wdi-exercises/big_ole_twitter_object)
 
-## Closing, Q&A, Review LO's (10 / 150)
+## Closing, Q&A, Review LO's
 
-1. How are objects different than arrays.
+1. How are objects different than arrays?
 2. How are objects like dictionaries?
 
 ## References
