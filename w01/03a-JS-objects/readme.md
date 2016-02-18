@@ -33,10 +33,6 @@ You're goal is to pseudo-code an object literal:
 * Take 3 minutes to construct your object literal with appropriate key value pairs by drawing it on the table
 * **Bonus - One key value pair contains an array**
 
-### You DO: Interacting with Objects
-
-**Read through the below, and then complete the exercise with your partner**
-
 #### Create
 
 We already saved a sample object to a `car` variable. We did this using **object literal notation**.
@@ -100,6 +96,10 @@ Javascript objects also have native methods that take care of this for us...
 // .keys()
 Object.keys( car );
 ```
+
+### Demo: Converting Arrays into Objects
+
+Demonstrate converting the arrays into objects using the [ASM Example Data](https://github.com/ga-dc/DOC_immersive/tree/master/w01/02-javascript-data-types-conditionals-loops/asm_data_arrays)
 
 ### Exercise
 
