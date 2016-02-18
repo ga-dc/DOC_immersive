@@ -98,10 +98,23 @@ We can drill through this response just like any other JS object.
 })
 ```
 
-## YOU DO: DOM Manipulation Using Response Data (10/60)
+## YOU DO- Weather App: DOM Manipulation Using Response Data (40/90)
 
 Take our existing code for the the weather underground app. Instead of logging the temperature, the `.done()` promise should create a div with the current wind speed in mph.  
 
+### Create Interface for getting weather
+
+1. Create an input text field for City and State in the HTML.  
+2. Have the endpoint url for the `$.getJSON` change dynamically based on user input from those text fields.   
+
+### Create a Weather App!
+1. Instead of grabbing just the current wind speed give a general description of weather for a city and state the user specifies.
+
+Things you could include but are not limited to:
+- temperature
+- windspeed
+- humidity
+- current weather conditions
+
 ### Bonus
-  1. Create an input text field for City and State in the HTML.  
-  2. Have the endpoint url change dynamically based on user input to generate a div about current weather in that area.  
+- Make a 10 day forecast as well. (Hint: this will use a different url endpoint for your `$.getJSON` request)
