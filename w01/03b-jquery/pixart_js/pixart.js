@@ -6,6 +6,17 @@ for(var i=0; i < 10000; i++) {
 }
 
 $(".square").on("mouseover", paintSquare);
+
 function paintSquare(event) {
   $(this).css("background-color", paintColor);
+}
+
+// add the event listener for clicking
+$("#set-color").on("click", changeColor);
+
+function changeColor(event) {
+  event.preventDefault();
+  var newColor = $("#color-field").val();
+  $(".brush").css("background-color", newColor);
+  paintColor = newColor;
 }
