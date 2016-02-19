@@ -123,11 +123,11 @@ Take our existing code for the the weather underground app. Instead of logging t
 
 ### Create Interface for getting a city and state to dynamically change the url
 
-1. Create an input text field for City and State in the HTML.  
+Create an input text field for City and State in the HTML.  
 
 - hint: create input tags in your html
 
-2. Have the endpoint url for the `$.getJSON` change dynamically based on user input from those text fields.   
+Have the endpoint url for the `$.getJSON` change dynamically based on user input from those text fields.   
 
 - hint: get the value of the input tags in order to change the url to be the city and state the user inputs
 
