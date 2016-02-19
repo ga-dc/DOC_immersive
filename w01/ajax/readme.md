@@ -125,11 +125,11 @@ Take our existing code for the the weather underground app. Instead of logging t
 
 1. Create an input text field for City and State in the HTML.  
 
-> hint: create input tags in your html
+- hint: create input tags in your html
 
 2. Have the endpoint url for the `$.getJSON` change dynamically based on user input from those text fields.   
 
-> hint: get the value of the input tags in order to change the url to be the city and state the user inputs
+- hint: get the value of the input tags in order to change the url to be the city and state the user inputs
 
 ### Create a Weather App!
 1. Instead of grabbing just the current wind speed give a general description of weather for a city and state the user specifies.
