@@ -349,6 +349,7 @@ $(document).ready(function(){
 For the first 15 minutes:
 - Duplicate this code on your own machine.
 - Familiarize yourself with the code and play with it. Adjust values and see what changes.
+
 For the following 10 minutes pair up with a partner and do the following:
 - Identify each visual feature of the graph and map them to parts of the code
 - Identify similarities between highcharts and chartjs
