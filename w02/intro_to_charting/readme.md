@@ -112,7 +112,7 @@ Charting libraries provide us an interface with which we can input some data, an
 
 ChartJS is one charting library we'll be learning about today.  It's fairly intuitive and simple to use. Let take a look at its [documentation](http://www.chartjs.org/docs/). If you look at the navigation on the left hand side, you can see that chartJS supports various different types of graphs. Today we'll be learning about making bar charts and pie graphs with chartJS.
 
-The first thing we're going to do is make a simple chart about Mary, Tom and Sue and their apple eating habits across a 5 day work week. The following is a table to depict Mar, Tom, and Sues apple ingestion habits. We want to turn the following data into something with data visualization:
+The first thing we're going to do is make a simple chart about Mary, Tom and Sue and their apple eating habits across a 5 day work week. The following is a table to depict Mar, Tom, and Sue's apple ingestion habits. We want to turn the following data into something with data visualization:
 
 ### Dem apples
 
@@ -170,9 +170,9 @@ I want to give you what the final line of our JS will look like
 var myBarChart = new Chart(ctx).Bar(data)
 ```
 
-> this thing Chart, it was defined by chartJS. As was `.Bar`. What isn't defined is data, we need to define that. What this line of code says to me is, I'm going to create a new chart, its type will be bar, and it will have some data(the data we haven't defined yet)r.
+> this thing Chart, it was defined by chartJS. As was `.Bar`. What isn't defined is data, we need to define that. What this line of code says to me is, I'm going to create a new chart, its type will be bar, and it will have some data(the data we haven't defined yet).
 
-Let's define data now. In many charting libraries, including chartJS, they want there data formatted pretty specifically. Here's what it looks like for bar charts in ChartJS. In `script.js`:
+Let's define data now. In many charting libraries, including chartJS, they want their data formatted pretty specifically. Here's what it looks like for bar charts in ChartJS. In `script.js`:
 
 ```js
 var data = {
@@ -202,7 +202,7 @@ var data = {
 
 > As we look at this data, we can start to the see the importance of indexing in arrays. Specifically, how each of these indexes need to correspond to a specific day.
 
-If we look at our application now, we can see a nice bar chart visualizing mary, tom, and sues apple eating habits.
+If we look at our application now, we can see a nice bar chart visualizing mary, tom, and sue's apple eating habits.
 
 If we take the last line of code and modify it a bit... instead of:
 
@@ -230,7 +230,7 @@ With the data arrays at the very top of the page. Make a bar graph using chartJS
 ## Pie Charts
 For this next exercise, we'll maintain our existing code and just get rid of the contents of `script.js`
 
-To clearly see how pie charts work in chartJS, we're going to use some carefully selected fake data. We're going to graph the results of a survey of 100 people that were asked what there favorite fruit among apples, bananas and oranges. The survey results:
+To clearly see how pie charts work in chartJS, we're going to use some carefully selected fake data. We're going to graph the results of a survey of 100 people that were asked what their favorite fruit among apples, bananas and oranges. The survey results:
 
 - Apples: 50
 - Oranges: 30
@@ -343,5 +343,32 @@ $(document).ready(function(){
     }]
   });
 });
-
 ```
+
+## Think pair share - You do, with a partner!
+For the first 15 minutes:
+- Duplicate this code on your own machine.
+- Familiarize yourself with the code and play with it. Adjust values and see what changes.
+For the following 10 minutes pair up with a partner and do the following:
+- Identify each visual feature of the graph and map them to parts of the code
+- Identify similarities between highcharts and chartjs
+- Identify differences between highcharts and chartjs
+
+## You do - Build a line chart using highcharts
+Build a line chart for total sales of 3 products: shoes, sunglasses, scarves.
+
+You have the following information:
+
+|      | jan | feb | mar | apr | may | jun | jul | aug | sep | oct | nov | dec |
+|------|---- |-----|-----|-----|-----|-|-|-|-|-|-|-|
+|shoes     | 1121|1050|1287|1350|1257|1478|1357|1201|1135|1333|1569|2000|
+|sunglasses|758 |669|521|489|652|859|923|887|623|389|542|1109|
+|scarves   |1101 |694|332|231|78|52|48|78|301|594|658|1608|
+
+> Theses numbers are in 10 thousands of dollars and are also completely made up
+
+Use highcharts to build a graph with the information above. Each point in a line should represent how much in sales a particular item did for its corresponding month. The line itself should be a visual representation of how much sales a particular product had.
+
+Leverage the code from the pairing exercise to write this graph.
+
+## You do - Pick another type of chart, and build it! Using either chartJS or HighchartJS.
