@@ -360,11 +360,11 @@ Build a line chart for total sales of 3 products: shoes, sunglasses, scarves.
 
 You have the following information:
 
-|      | jan | feb | mar | apr | may | jun | jul | aug | sep | oct | nov | dec |
-|------|---- |-----|-----|-----|-----|-|-|-|-|-|-|-|
-|shoes     | 1121|1050|1287|1350|1257|1478|1357|1201|1135|1333|1569|2000|
-|sunglasses|758 |669|521|489|652|859|923|887|623|389|542|1109|
-|scarves   |1101 |694|332|231|78|52|48|78|301|594|658|1608|
+|          |jan |feb |mar |apr |may |jun |jul |aug |sep |oct |nov |dec |
+|----------|----|----|----|----|----|----|----|----|----|----|----|----|
+|shoes     |1121|1050|1287|1350|1257|1478|1357|1201|1135|1333|1569|2000|
+|sunglasses|758 |669 |521 |489 |652 |859 |923 |887 |623 |389 |542 |1109|
+|scarves   |1101|694 |332 |231 |78  |52  |48  |78  |301 |594 |658 |1608|
 
 > Theses numbers are in 10 thousands of dollars and are also completely made up
 
