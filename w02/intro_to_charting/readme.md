@@ -5,7 +5,7 @@
 - load dependencies for charting libraries to web application
 - utilize highchart and chartjs libraries to create bar, pie, scatter, line graphs
 
-## ASM revisted
+## ASM revisted- where we left off ...
 ### Creating a wrapper for the results.
 Currently the data is wrapped up in a bunch of arrays. It'll be much nicer to view this same data as an object. Where 1 object represents all of a states information. Currently the array does that, but not in a semantic meaningful way. Let's imagine that we took the current data set and saved it to a variable `results`:
 
