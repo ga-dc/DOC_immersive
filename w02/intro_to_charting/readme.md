@@ -108,4 +108,240 @@ Let's just not do it ... anymore! Turns out, there are a lot of resources out th
 
 Charting libraries provide us an interface with which we can input some data, and out comes a nice little chart. Some of the interfaces are a bit more complex and others are relatively simple. It all depends on the type of chart you're making, the complexity of that chart, and the interface a specific library provides for that chart.
 
-## Highcharts
+## ChartJS - Bar Charts
+
+ChartJS is one charting library we'll be learning about today.  It's fairly intuitive and simple to use. Let take a look at its [documentation](http://www.chartjs.org/docs/). If you look at the navigation on the left hand side, you can see that chartJS supports various different types of graphs. Today we'll be learning about making bar charts and pie graphs with chartJS.
+
+The first thing we're going to do is make a simple chart about Mary, Tom and Sue and their apple eating habits across a 5 day work week. The following is a table to depict Mar, Tom, and Sues apple ingestion habits. We want to turn the following data into something with data visualization:
+
+### Dem apples
+
+|      | monday | tuesday | wednesday | thursday | friday |
+|------|--------|---------|-----------|----------|--------|
+| Mary | 2      | 1       | 4         | 1        | 4      |
+| Tom  | 1      | 2       | 3         | 2        | 5      |
+| Sue  | 1      | 1       | 4         | 1        | 5      |
+
+> the number signifies how many apples each person has consumed per that day.
+
+Alrighty, we need to create the same 2 files we've always created up to this point, `index.html` and `script.js`.
+
+In the `index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="myChart" height="500px" width="500px"></canvas>
+  <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+> you'll notice we've included a couple of new things we haven't seen before. Including the CDN for chartjs as well as an HTML canvas element. The HTML `<canvas>` element is used to draw graphics on a web page normally through javascript.
+
+One thing to note is that each charting library is structured a bit differently. The way its configured and how data needs to be formatted can vary significantly.
+
+Let's create our first bar chart using chartJS.
+
+In the `script.js`:
+
+```js
+$(document).ready(function(){
+  // grabs the html element so that we can use it to build our chart later.
+  var ctx = $("#myChart").get(0).getContext("2d");
+})
+
+```
+
+> chartJS doesn't support jquery so we have to convert the jquery object into a regular JS object.
+
+Next we have to define the data in a specific way defined by chartJS.
+
+I want to give you what the final line of our JS will look like
+
+```js
+var myBarChart = new Chart(ctx).Bar(data)
+```
+
+> this thing Chart, it was defined by chartJS. As was `.Bar`. What isn't defined is data, we need to define that. What this line of code says to me is, I'm going to create a new chart, its type will be bar, and it will have some data(the data we haven't defined yet)r.
+
+Let's define data now. In many charting libraries, including chartJS, they want there data formatted pretty specifically. Here's what it looks like for bar charts in ChartJS. In `script.js`:
+
+```js
+var data = {
+  labels: ["monday", "tuesday", "wednesday", "thursday", "friday"],
+  datasets: [
+    {
+      label: "Mary",
+      fillColor: "lemonchiffon",
+      strokeColor: "#5580aa",
+      data: [2, 1, 4, 1, 4]
+    },
+    {
+      label: "Tom",
+      fillColor: "papayawhip",
+      strokeColor: "plum",
+      data: [1, 2, 3, 2, 5]
+    },
+    {
+      label: "Sue",
+      fillColor: "lightcyan",
+      strokeColor: "palevioletred",
+      data: [1, 1, 4, 1, 5]
+    }
+  ]
+}
+```
+
+> As we look at this data, we can start to the see the importance of indexing in arrays. Specifically, how each of these indexes need to correspond to a specific day.
+
+If we look at our application now, we can see a nice bar chart visualizing mary, tom, and sues apple eating habits.
+
+If we take the last line of code and modify it a bit... instead of:
+
+```js
+var myBarChart = new Chart(ctx).Bar(data)
+```
+
+Let's try:
+
+```js
+var myBarChart = new Chart(ctx).Bar(data, {
+  multiTooltipTemplate: "<%= datasetLabel %> - <%= value %>"
+})
+```
+
+If we take a look at the chart now and hover over the days, we can see some helpful text as we hover. Many different graphs have various options that you can pass in. In the example above the options are just passed in as an object of key-value pairs. Refer to the documentation to see all the different options you can put in!
+
+## You do - ASM revisted* 2! - Make a bar graph!
+With the data arrays at the very top of the page. Make a bar graph using chartJS that charts the number of employees in manufacturing per state.
+- the x - axis should contain the different state names
+- there should be a bar for the number of employees for each state.
+- *bonus* include a bar for the annual pay and make sure it's labeled when you hover over it
+- *mega bonus* include a bar for the average salary and make sure it's labeled when you hover over it
+
+## Pie Charts
+For this next exercise, we'll maintain our existing code and just get rid of the contents of `script.js`
+
+To clearly see how pie charts work in chartJS, we're going to use some carefully selected fake data. We're going to graph the results of a survey of 100 people that were asked what there favorite fruit among apples, bananas and oranges. The survey results:
+
+- Apples: 50
+- Oranges: 30
+- Bananas: 20
+
+> Let's use a nice round number like 100, so we can clearly see percentages that we're familiar with.
+
+Let's take a look at how the data for this pie graph will have to be structured:
+
+```js
+$(document).ready(function(){
+  var ctx = $("#myChart").get(0).getContext("2d");
+  var data = [
+    {
+        value: 50,
+        color:"red",
+        highlight: "#FF5A5E",
+        label: "Apples"
+    },
+    {
+        value: 30,
+        color: "orange",
+        highlight: "#5AD3D1",
+        label: "Oranges"
+    },
+    {
+        value: 20,
+        color: "yellow",
+        highlight: "#FFC870",
+        label: "Bananas"
+    }
+]
+ var myBarChart = new Chart(ctx).Pie(data)
+})
+```
+
+## You do - Make a pie graph!
+Make a pie graph of the class!
+
+This pie graph should visually break down how many people in the class has first names in the following ranges:
+
+- A through I
+- J through R
+- S through Z
+
+## HighchartJS
+The next library we'll be learning is highchartJS. You'll see lots of similarities in the way data structures are being used; however, for these next two sections we'll be doing line graphs and scatter plots.
+
+For this next section I want to show you a chart first:
+
+![highchart](highchart.png)
+
+Here's the code that generated that chart.
+
+`index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="container" style="width: 100%; height: 650px"></div>
+  <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+`script.js`:
+
+```js
+$(document).ready(function(){
+  $('#container').highcharts({
+    chart: {
+      type: 'line'
+    },
+    title: {
+      text: 'Monthly Average Temperature'
+    },
+    subtitle: {
+      text: 'Source: WorldClimate.com'
+    },
+    xAxis: {
+      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    },
+    yAxis: {
+      title: {
+        text: 'Temperature (°C)'
+      }
+    },
+    plotOptions: {
+      line: {
+        dataLabels: {
+          enabled: true
+        },
+        enableMouseTracking: false
+      }
+    },
+    series: [{
+      name: 'Tokyo',
+      data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+    }, {
+      name: 'London',
+      data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+    }]
+  });
+});
+
+```
