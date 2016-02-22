@@ -82,8 +82,8 @@ Reading:
 ### Charting with Highcharts and ChartJS
 - leverage HTML, CSS, and JS to create a basic bar chart
 - load dependencies for charting libraries to web application
-- utilize highchart and chartjs libraries to create bar, pie, scatter, line graphs
-- use charting functions in librariers to create charts
+- utilize highchart and chartjs libraries to create bar, pie, line graphs
+- use charting functions in libraries to create charts
 - input data into highchart/chartjs formats to generate data in charts.
 
 // Day 2 - AJAX, Data Agg, Highcharts
