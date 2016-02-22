@@ -79,20 +79,13 @@ Reading:
 - Use jQuery's 'promise-like' methods to handle AJAX responses asynchronously.
 - Render new HTML content using data loaded from an Ajax request
 
-// weather underground
-// possibly use asm api to create html/css bar chart
+### Charting with Highcharts and ChartJS
 
-### Highcharts
-
-
-// Day 1 - intro - no ajax
-  // bar, pie, scatter, line
-  // pre aggregated DOC_data
-
-// Day 2 - AJAX, Data Agg, Highcharts
-  // bar charts
-  // underscore
-  // data manipulation
+- leverage HTML, CSS, and JS to create a basic bar chart
+- load dependencies for charting libraries to web application
+- utilize highchart and chartjs libraries to create bar, pie, scatter, line graphs
+- use charting functions in librariers to create charts
+- input data into highchart/chartjs formats to generate data in charts.
 
 
 ### Dygraphs
