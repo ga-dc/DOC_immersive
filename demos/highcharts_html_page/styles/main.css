@@ -1,0 +1,66 @@
+/*
+2B3A42
+3F5765
+BDD4DE
+EFEFEF
+FF530D
+*/
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: #EFEFEF;
+  margin: 0;
+  font-size: 20px;
+}
+
+header {
+  height: 500px;
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/header.jpg");
+  background-size: cover;
+}
+
+h1, h2 {
+  font-family: sans-serif;
+  color: #FF530D;
+}
+
+h3 {
+  color: #2B3A42;
+}
+
+.intro {
+  width: 400px;
+  padding: 10px;
+  position: relative;
+  top: 20%;
+  left: 20%;
+  color: #FF530D;
+  background: rgba(255,255,255, .9);
+  border-radius: 10px;
+}
+
+main {
+  width: 50em;
+  margin: 2em auto;
+}
+
+section {
+  clear: both;
+}
+
+.info {
+}
+
+.graph-container {
+  width: 100%;
+  padding: 10px;
+}
+
+.year-graph {
+  background-color: white;
+}
