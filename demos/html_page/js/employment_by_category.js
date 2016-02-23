@@ -12,12 +12,10 @@ function graphNAICSCode(naicsCode) {
 }
 
 function buildNaicsSelect() {
-  $.getJSON("js/data/naics.json", function(naics) {
-    naics.forEach(function(naicsCode){
-      $(".naics").append($("<option value='" + naicsCode.code + "'>" + naicsCode.description + "</option>"));
-    });
-    $('.naics').on("change", function() {
-      graphNAICSCode($(this).val());
-    });
+  naicsCode().forEach(function(naicsCode){
+    $(".naics").append($("<option value='" + naicsCode.code + "'>" + naicsCode.description + "</option>"));
+  });
+  $('.naics').on("change", function() {
+    graphNAICSCode($(this).val());
   });
 }
