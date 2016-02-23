@@ -21,3 +21,7 @@ Take a couple minutes to play around with the site. Click on the different links
 Now pair with someone and discuss the following:
 - Assume that clicking DOES influence the data we get from AJAX, how does that work?
 - what is changing and how does that affect the graph that's displayed?
+
+## Interactive Charts
+
+So we're not learning anything new today.... kind of. We're just learning about a different way to use the tools we've learned about
