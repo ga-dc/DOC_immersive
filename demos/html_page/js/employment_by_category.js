@@ -12,7 +12,7 @@ function graphNAICSCode(naicsCode) {
 }
 
 function buildNaicsSelect() {
-  naicsCode().forEach(function(naicsCode){
+  naicsCodes().forEach(function(naicsCode){
     $(".naics").append($("<option value='" + naicsCode.code + "'>" + naicsCode.description + "</option>"));
   });
   $('.naics').on("change", function() {
