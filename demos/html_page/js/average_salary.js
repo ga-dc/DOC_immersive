@@ -26,11 +26,9 @@ function graphAvgSalary(dataPoints) {
     chart: { type: 'column'},
     title: { text: 'Average Salaries'},
     xAxis: {
-      categories: _.map(dataPoints, 'state')
+      categories: _.pluck(dataPoints, 'state')
     },
     yAxis: {
-      min: _.min(_.map(dataPoints, 'avgSalary')) * 0.9,
-      max: _.max(_.map(dataPoints, 'avgSalary')) * 1.05,
       title: {
         text: "Average Salary"
       }
@@ -39,7 +37,7 @@ function graphAvgSalary(dataPoints) {
       {
         name: "States",
         showInLegend: false,
-        data: _.map(dataPoints, 'avgSalary')
+        data: _.pluck(dataPoints, 'avgSalary')
       }
     ]
   });
