@@ -86,18 +86,17 @@ Reading:
 - use charting functions in libraries to create charts
 - input data into highchart/chartjs formats to generate data in charts.
 
-// Day 2 - AJAX, Data Agg, Highcharts
-  // bar charts
-  // underscore
-  // data manipulation
+### Charting with API's
+- Review basics techniques for fetching data using AJAX
+- Use underscore.js to sort, filter and prepare data for presentation
+- Present data using line and bar charts via highcharts.js
+- Organize JS code into multiple files for reusability
 
 
-### Dygraphs
-- create a line graph
-
-// Day 3- interactive charts
-  // drop downs
-  // naics codes
+### Interactive charts
+- render html elements with data sourced from script files
+- Utilize html elements to dynamically change endpoints for `$.getJSON`
+- render graphs based on input from html
 
 
 ### D3
