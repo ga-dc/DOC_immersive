@@ -1,6 +1,4 @@
-console.log("naics file is loaded")
 function naicsCodes(){
-  console.log("being called")
   return [
     { "code": "31-33", "description": "Manufacturing"},
     { "code": "311", "description": "Food Manufacturing"},
