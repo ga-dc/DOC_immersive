@@ -381,3 +381,7 @@ http://api.census.gov/data/timeseries/asm/industry?get=NAICS_TTL,EMP,GEO_TTL&for
 Here's the js file that contains the data you'll need:
 
 https://raw.githubusercontent.com/ga-dc/DOC_immersive/master/demos/highcharts_html_page/js/data/naics.js
+
+We built a lot of this code throughout today. Try and recreate it with this new chart.
+
+## I do - Refactor or Runthrough of solution (if we have time)
