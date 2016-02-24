@@ -67,11 +67,12 @@ in `index.html`:
 <body>
   <h1>Interactive Chart</h1>
   <select class="states"></select>
+  <div id="employment-by-state"></div>
 </body>
 </html>
 ```
 
-> In the html, we've linked to jQuery and UnderscoreJS as well as the empty `fips.js` and `script.js` files. Additionally we've created a select box with no contents in it.
+> In the html, we've linked to jQuery and UnderscoreJS as well as the empty `fips.js` and `script.js` files. Additionally we've created a `<select>` box which will hold our different options and a `<div>` which will contain our graph.
 
 In `fips.js`, we're going to the copy the contents of the code found [here](https://raw.githubusercontent.com/ga-dc/DOC_immersive/master/demos/highcharts_html_page/js/data/fips.js).
 
@@ -149,7 +150,7 @@ $('.states').on("change", function() {
 });
 ```
 
-> Note that we're grabbing the value from the option tag by doing `$(this).val()` and passing it into the function were about to build
+> Note that we're grabbing the value from the option tag by doing `$(this).val()` and passing it into the function we're about to build
 
 Let's start defining our `graphState` function now. The first thing that we want to do is make sure we're getting the right information when we change the option for a state.
 
@@ -205,3 +206,165 @@ function convertResultsToObjects(response) {
 ```
 
 > We'll even kept the comments Adam made in the code if you want to review this later.
+
+Now that we have that functionality we can convert our results into an object and use that object to generate the graph.
+
+Before we finish building the `graphState` functionality. Let's do a little exercise.
+
+## In Pairs - Investigate the old code!
+Think back a couple of lessons ago when we looked at the highchart's code for a line graph. Look at [this fiddle](http://jsfiddle.net/gh/get/jquery/1.9.1/highslide-software/highcharts.com/tree/master/samples/highcharts/demo/line-labels/) if you need a reference.
+
+With your parter:
+- look at the different visual properties on the graph
+- compare that with what is written in code in the jsFiddle
+- write down everything that we need to change in order to make a line graph about manufacturing
+- of those things, write down information can we get from the API
+
+## Back to manugraphing ... get it?
+
+So we've pieced together most of the information we're going to need, lets further package those things into an object so we can write our chart functionality a little more semantically. We're going to use Adam's code from yesterday to package the results into nice objects.
+
+In `script.js`:
+
+```js
+function graphState(id) {
+  $.getJSON("http://api.census.gov/data/timeseries/asm/state?get=NAICS_TTL,EMP,GEO_TTL&for=state:" + id + "&YEAR=2005,2006,2007,2008,2009,2010,2011,2012,2013,2014&NAICS=31-33&key=81cdc733d3ac0f3496a88eebbed0a31478c403c6")
+  .then(convertResultsToObjects)
+  .then(function(results) {
+    // using underscore's map function to return an array of just the values we want
+    var years = _.map(results, function(r) { return parseInt(r.YEAR); });
+    var employees = _.map(results, function(r) { return parseInt(r.EMP); });
+    var data = {
+      title: "Time Series Data by State",
+      name: results[0].GEO_TTL,
+      years: years,
+      employees: employees,
+      xAxisName: "Year",
+      yAxisName: "Employees"
+    }
+  });
+
+}
+```
+
+> In this object `data` we're packaging up all of the things that will be different in a line graph.
+
+Finally, lets actually create the chart using highcharts! Our final version of `script.js`:
+
+```js
+function graphState(id) {
+  $.getJSON("http://api.census.gov/data/timeseries/asm/state?get=NAICS_TTL,EMP,GEO_TTL&for=state:" + id + "&YEAR=2005,2006,2007,2008,2009,2010,2011,2012,2013,2014&NAICS=31-33&key=81cdc733d3ac0f3496a88eebbed0a31478c403c6")
+  .then(convertResultsToObjects)
+  .then(function(results) {
+    // using underscore's map function to return an array of just the values we want
+    var years = _.map(results, function(r) { return parseInt(r.YEAR); });
+    var employees = _.map(results, function(r) { return parseInt(r.EMP); });
+    var data = {
+      title: "Time Series Data by State",
+      name: results[0].GEO_TTL,
+      years: years,
+      employees: employees,
+      xAxisName: "Year",
+      yAxisName: "Employees"
+    }
+    $("#employment-by-state").highcharts({
+      title: {
+        text: data.title,
+        x: -20 //center
+      },
+      xAxis: {
+        title: {
+          text: data.xAxisName
+        },
+        categories: data.years
+      },
+      yAxis: {
+        title: {
+            text: data.yAxisName
+        },
+        plotLines: [{
+            value: 0,
+            width: 1,
+            color: '#808080'
+        }]
+      },
+      tooltip: {
+        valueSuffix: data.yAxisName
+      },
+      legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle',
+        borderWidth: 0
+      },
+      series: [{
+        name: data.name,
+        data: data.employees
+      }]
+    })
+  });
+}
+```
+
+> There are several opportunities to refactor our code already, we're going to do one refactoring but feel free to see what can be abstracted. If we abstract and modularize things correctly, our code will be more semantic and more maintainable. Example: Let's say the api format changes. W don't want to have to look through our entire code base to figure out where to fix it. We know we have a function who's only job is to convert the results of the API into an object. So the only code we have to adjust will be in that function.
+
+## Refactor
+Oh wait, there's never a final version!  Our graph state functionality is getting a bit messy. Let's abstract the generation of the chart into a separate function.
+
+```js
+function graphState(id) {
+  $.getJSON("http://api.census.gov/data/timeseries/asm/state?get=NAICS_TTL,EMP,GEO_TTL&for=state:" + id + "&YEAR=2005,2006,2007,2008,2009,2010,2011,2012,2013,2014&NAICS=31-33&key=81cdc733d3ac0f3496a88eebbed0a31478c403c6")
+  .then(convertResultsToObjects)
+  .then(function(results) {
+    // using underscore's map function to return an array of just the values we want
+    var years = _.map(results, function(r) { return parseInt(r.YEAR); });
+    var employees = _.map(results, function(r) { return parseInt(r.EMP); });
+    var data = {
+      title: "Time Series Data by State",
+      name: results[0].GEO_TTL,
+      years: years,
+      employees: employees,
+      xAxisName: "Year",
+      yAxisName: "Employees"
+    }
+    graph(data, $("#employment-by-state"))
+  })
+
+function graph(data, el) {
+  el.highcharts({
+    title: {
+      text: data.title,
+      x: -20 //center
+    },
+    xAxis: {
+      title: {
+        text: data.xAxisName
+      },
+      categories: data.years
+    },
+    yAxis: {
+      title: {
+          text: data.yAxisName
+      },
+      plotLines: [{
+          value: 0,
+          width: 1,
+          color: '#808080'
+      }]
+    },
+    tooltip: {
+      valueSuffix: data.yAxisName
+    },
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle',
+      borderWidth: 0
+    },
+    series: [{
+      name: data.name,
+      data: data.employees
+    }]
+  })
+}
+```
