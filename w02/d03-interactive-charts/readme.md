@@ -368,3 +368,16 @@ function graph(data, el) {
   })
 }
 ```
+
+## You do - NAICS interactive
+Create an interactive chart that shows number of employees in certain types of manufacturing from 2005 - 2014
+
+Here's the endpoint for the URL you'll need:
+
+```
+http://api.census.gov/data/timeseries/asm/industry?get=NAICS_TTL,EMP,GEO_TTL&for=us:*&YEAR=2005,2006,2007,2008,2009,2010,2011,2012,2013,2014&NAICS=" + naicsCode + "&key=81cdc733d3ac0f3496a88eebbed0a31478c403c6
+```
+
+Here's the js file that contains the data you'll need:
+
+https://raw.githubusercontent.com/ga-dc/DOC_immersive/master/demos/highcharts_html_page/js/data/naics.js
