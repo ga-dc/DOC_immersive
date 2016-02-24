@@ -17,7 +17,7 @@ If you'd prefer, here are some alternate ideas:
 
 ### Annual Survey of Manufacturers API
 
-Build one or more of the following visualizations:
+Build one or more of the following visualizations, using the [ASM API](http://www.census.gov/data/developers/data-sets/Annual-Survey-of-Manufactures.html)
 
 * a grouped bar chart that shows average salary per state over time
 * a bar chart of average salaries per state, where the user can select the year and or states to show.
