@@ -40,17 +40,19 @@ The goal of today will be to build most of [this application](http://ga-dc.githu
 
 If we take a look and inspect these select boxes, we can see the different names of categories and states, but there's also these value properties in our html. Let's take a look at the URL we were using yesterday:
 
-```js
-"http://api.census.gov/data/timeseries/asm/state?get=NAICS_TTL,EMP,PAYANN,GEO_TTL&for=state:*&YEAR=2014&NAICS=31-33&key=81cdc733d3ac0f3496a88eebbed0a31478c403c6"
+```
+http://api.census.gov/data/timeseries/asm/state?get=NAICS_TTL,EMP,PAYANN,GEO_TTL&for=state:*&YEAR=2014&NAICS=31-33&key=81cdc733d3ac0f3496a88eebbed0a31478c403c6
 ```
 
 Do you see any values that are similar in the option elements as the one in the URL?
 
-In order for us to leverage these values, we need to first build out the select options. I have a list of 51 state codes for manufacturing. You can find it [here](https://raw.githubusercontent.com/ga-dc/DOC_immersive/master/demos/highcharts_html_page/js/data/fips.js).
+In order for us to leverage these values, we need to first build out the select options. We have a list of 51 state codes for manufacturing. You can find it [here](https://raw.githubusercontent.com/ga-dc/DOC_immersive/master/demos/highcharts_html_page/js/data/fips.js).
 
-In HTML, I want you to write an option box for each object that you see in this list. Just kidding! That would be crazy, I would have to be pretty sick to make you guys hard code all of these values as `<option>` elements in our HTML. Instead, we'll do this sort of thing in javascript using jQuery.
+In HTML, let's write an option box for each object that you see in this list. Just kidding! That would be crazy, we would probably hate coding if we had to hard code all of these values as `<option>` elements in our HTML. Instead, we'll do this sort of thing in javascript using jQuery.
 
-Let's create the two files we're going to need(... again) `index.html` and `script.js` but also `fips.js`:
+Let's create the two files we're going to need(... again) `index.html` and `script.js` but also a `fips.js` file:
+
+> the `fips.js` file is the file that will contain our hardcoded data
 
 in `index.html`:
 
@@ -307,7 +309,7 @@ function graphState(id) {
 }
 ```
 
-> There are several opportunities to refactor our code already, we're going to do one refactoring but feel free to see what can be abstracted. If we abstract and modularize things correctly, our code will be more semantic and more maintainable. Example: Let's say the api format changes. W don't want to have to look through our entire code base to figure out where to fix it. We know we have a function who's only job is to convert the results of the API into an object. So the only code we have to adjust will be in that function.
+> There are several opportunities to refactor our code already, we're going to do one refactoring but feel free to see what can be abstracted. If we abstract and modularize things correctly, our code will be more semantic and more maintainable. Example: Let's say the api format changes. We don't want to have to look through our entire code base to figure out where to fix it. We know we have a function who's only job is to convert the results of the API into an object. So the only code we have to adjust will be in that function.
 
 ## Refactor
 Oh wait, there's never a final version!  Our graph state functionality is getting a bit messy. Let's abstract the generation of the chart into a separate function.
@@ -328,10 +330,10 @@ function graphState(id) {
       xAxisName: "Year",
       yAxisName: "Employees"
     }
-    graph(data, $("#employment-by-state"))
+    buildChart(data, $("#employment-by-state"))
   })
 
-function graph(data, el) {
+function buildChart(data, el) {
   el.highcharts({
     title: {
       text: data.title,
@@ -370,13 +372,15 @@ function graph(data, el) {
 }
 ```
 
+> With the way the `buildChart` function is defined. All we need to do is pass in an object with the information that changes on a graph and the html element we want to attach the chart to.
+
 ## You do - NAICS interactive
 Create an interactive chart that shows number of employees in certain types of manufacturing from 2005 - 2014
 
 Here's the endpoint for the URL you'll need:
 
 ```
-http://api.census.gov/data/timeseries/asm/industry?get=NAICS_TTL,EMP,GEO_TTL&for=us:*&YEAR=2005,2006,2007,2008,2009,2010,2011,2012,2013,2014&NAICS=" + naicsCode + "&key=81cdc733d3ac0f3496a88eebbed0a31478c403c6
+http://api.census.gov/data/timeseries/asm/industry?get=NAICS_TTL,EMP,GEO_TTL&for=us:*&YEAR=2005,2006,2007,2008,2009,2010,2011,2012,2013,2014&NAICS=31-33&key=81cdc733d3ac0f3496a88eebbed0a31478c403c6
 ```
 
 Here's the js file that contains the data you'll need:
