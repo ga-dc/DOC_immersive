@@ -27,6 +27,7 @@ Now pair with someone and discuss the following:
 So we're not learning anything new today.... kind of. We're just learning about a different way to use the tools we've learned about.
 
 At a high level, these are the things we want to do:
+
 1. provide an interface for user input
 2. grab the user input to influence the type of `$.getJSON` request
 3. take that request and render a graph
