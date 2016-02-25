@@ -9,24 +9,23 @@ $.getJSON(url)
 function drawBarChart(data) {
   var sortedData = _.sortBy(data, 'averageSalary').reverse();
   var top10states = _.first(sortedData, 10);
-  var max = d3.max(top10states, function(d) {return +d.averageSalary; });
-  var min = d3.min(top10states, function(d) {return +d.averageSalary; }) * 0.95;
+  var maxSalary = d3.max(top10states, function(state) { return state.averageSalary; });
 
-  var x = d3.scale.linear()
-      .domain([min, max])
-      .range([0, 500]);
+  //// change
+  var xScale = d3.scale.linear()
+                  .range([0, 500])
+                  .domain([0, maxSalary]);
 
-  d3.select("#average-salaries").selectAll("div")
-    .data(top10states)
-      .enter().append("div")
-      .style("width", function(d){
-        return x(d.averageSalary) + "px";
-      })
-      .text(function(d){
-        return d.GEO_TTL;
-      });
+  var states = d3.select("#average-salaries").selectAll("div")
+    .data(top10states, function(state) {return state.GEO_TTL; });
 
-  return data;
+  states.enter().append("div").transition()
+      .style("width", function(d) { return xScale(d.averageSalary) + "px";})
+      .text(function(d) { return d.GEO_TTL + " " + Math.round(d.averageSalary); });
+
+  states.exit().remove();
+
+  states.order();
 }
 
 function logResults(data) {
@@ -59,6 +58,7 @@ function convertResultsToObjects(response) {
     results.push(newRowObj);
   }
 
+  globalData = results;
   // return the results so they can be used by the next function
   return results;
 }
