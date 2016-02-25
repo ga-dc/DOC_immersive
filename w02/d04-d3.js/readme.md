@@ -13,8 +13,12 @@ http://d3js.org/
 
 ## The Possibilities are Endless
 
+- http://www.nytimes.com/interactive/2012/11/30/us/tax-burden.html?_r=0
 - http://www.jasondavies.com/animated-bezier/
-- http://bl.ocks.org/mbostock/1136236
+- http://bl.ocks.org/mbostock/3048450
+- http://bl.ocks.org/mbostock/4060366
+- http://www.koalastothemax.com/
+- https://www.jasondavies.com/maps/transition/
 - http://animateddata.co.uk/lab/d3-tree/
 - http://d3tetris.herokuapp.com/
 

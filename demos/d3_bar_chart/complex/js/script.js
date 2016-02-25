@@ -11,6 +11,7 @@ function drawBarChart(data) {
   var top10states = _.first(sortedData, 10);
   var max = d3.max(top10states, function(d) {return +d.averageSalary; });
   var min = d3.min(top10states, function(d) {return +d.averageSalary; }) * 0.95;
+
   var x = d3.scale.linear()
       .domain([min, max])
       .range([0, 500]);
