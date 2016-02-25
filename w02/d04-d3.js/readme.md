@@ -44,6 +44,11 @@ d3.selectAll("p").style("color", "white")
 d3.selectAll("p").style("color", function() {
   return "hsl(" + Math.random() * 360 + ",100%,50%)"
 })
+
+d3.selectAll("p").style("font-size", function() {
+  return (Math.random() * 12 + 12) + "px"
+})
+
 ```
 
 ## You do: D3 experiments in the console:
@@ -52,7 +57,7 @@ d3.selectAll("p").style("color", function() {
 
 ## We do: Let's make a bar chart
 
-http://github.com/ga-dc/d3-bar-chart/
+http://github.com/ga-wdi-exercises/d3-bar-chart/
 
 1. Remove the hardcoded HTML
 2. Select the chart element and save it to a variable
@@ -60,11 +65,7 @@ http://github.com/ga-dc/d3-bar-chart/
 4. Set the width for each bar
 5. Set the text for each bar
 
-### Improving the bar Chart
-
->SVG (Scalable Vector Graphics) is an XML format used for drawing. You can think of SVG in a lot of the same terms as the DOM – there are elements with parents and children and attributes, and you can respond to the same mouse/touch events.
-
-#### Scaling
+### Scaling
 
 d3 scales allow us to scale our data to fit into the space allotted.
 
@@ -72,8 +73,8 @@ The scaling functions provided by d3 map an input domain to an output range.
 
 ```js
 var linearScale = d3.scale.linear()
-                          .domain([0,420])
-			  .range([0,100])
+                    .domain([0,420]) // input
+			              .range([0,100])  // output
 ```
 
 and if you don’t know the max, use d3's `max` method:
@@ -82,11 +83,5 @@ and if you don’t know the max, use d3's `max` method:
 var max = d3.max(data)
 var linearScale = d3.scale.linear()
                           .domain([0,max])
-			  .range([0,100])
+			                    .range([0,100])
 ```
-
-## You do: Square Data Binding
-
-Follow Square’s tutorial on d3 and data binding - https://square.github.io/intro-to-d3/data-binding/
-
-Bonus! Add labels to your final interactive data visualization.
