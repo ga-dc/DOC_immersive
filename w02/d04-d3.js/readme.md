@@ -23,7 +23,7 @@ http://d3js.org/
 ## Hello World
 
 ```js
-var paragraphs = document.getElementsByTagName("p")
+var paragraphs = $("p")
 for (var i = 0; i < paragraphs.length; i++) {
   var paragraph = paragraphs[i]
   paragraph.style.color = "white"
@@ -33,7 +33,7 @@ for (var i = 0; i < paragraphs.length; i++) {
 vs
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js" charset="utf-8"></script>
 ```
 
 ```js
@@ -48,7 +48,7 @@ d3.selectAll("p").style("color", function() {
 
 ## You do: D3 experiments in the console:
 
-http://ga-dc.github.io/d3-console/
+[page with d3 preloaded](http://ga-wdi-exercises.github.io/d3-console/)
 
 ## We do: Let's make a bar chart
 
